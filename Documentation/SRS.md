@@ -61,7 +61,7 @@ they can monitor details of hoteliers along with their menu.
 System staff will be having authority to see unsensitive details of Customer and able to track the order. they will have all information of placed orders
 System will be able to cancel , reject or approve orders been placed by customers due to some policies of business.
 in case of any issue customers can contact to support team of system staff.
-
+<-- future if poosbble system staff can set coupone code in system so that customers will get occasional discount>
 
 ----> delivery boy
 orders which are placed successfully and under preparing status will be assigned to available delivery boy. delivery boy will get information about order like pickup hotel address, delivery location, mobile number of customer
