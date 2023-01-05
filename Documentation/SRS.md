@@ -13,9 +13,10 @@ Direct Customer,Indirect Customer, Architect,Business Analyst,	Quality Assurance
 The online food delivery portal is intended to  provide complete solution for hoteliers, Consumers as well as internal users (Staff) through  a single Gateway using internet. It will enable hoteliers to set up online restaurants, customers to browse through virtual restaurants and order meals online without visiting the restaurants physically.
 
 ## Scope:
-This System allows hoteliers to setup their hotels virtually and provide food facilities to customers.
-Customer will be able to  review orders history and may able to cancel their orders till restaurant did not accepts order.
-Delivery boy will be assign to each order based on availibilty and order will be delivered to customer.
+This System will allow hoteliers to setup their restaurents virtually and provide food facilities to customers.
+Customers can order food from registered restaurents online using this web based platform and they can cancel their orders till restaurant did not accept it.
+Customer can track order history through login.
+Delivery boy will be assigned to each order based on availibilty and order will be delivered to customer.
 for better integration between customers and hoteliers, internal staff will be having extra privileges. 
 
 ## Definitions:
