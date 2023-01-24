@@ -19,17 +19,6 @@ Customer can track order history through login.
 Delivery boy will be assigned to each order based on availibilty and order will be delivered to customer.
 for better integration between customers and hoteliers, internal staff will be having extra privileges. 
 
-## Definitions:
-	<!-- OSS: Online Shopping System
-	QA:  Quality Assurance
-	Portal: Peronalized Online Web Application
-	MIS: Management Information System
-	CRM: Customer Relation Managment
-	BI:  Business Intelligence
-	KPI:Key Performance I
-	Dashboard: Personalized information presented using  BI techniques such grid, score card, graph, KPI -->
-
-
 ## Functional Requirements:
 ---> Customer View:
 
@@ -42,7 +31,6 @@ Customers can give ratings to restaurants from which order is placed.
 customers can change their profile cridentials.
 during registration customer have to give address and they can add different delivery address while placing order. each customer can register maximum three address.
 for successfully delivered orders, customers can give ratings to delivery boy and restraurants
-<-- future may be possible -- customers can apply coupone code while payment --> 
 
 --->Hoteliers view
 Hoteliers need to do registration before creating virtual restrautant and this registrations request will be approved by system staff after some verification.
@@ -62,12 +50,37 @@ they can monitor details of hoteliers along with their menu.
 System staff will be having authority to see unsensitive details of Customer and able to track the order. they will have all information of placed orders
 System will be able to cancel , reject or approve orders been placed by customers due to some policies of business.
 in case of any issue customers can contact to support team of system staff.
-<-- future if poosbble system staff can set coupone code in system so that customers will get occasional discount>
 
 ----> delivery boy
 orders which are placed successfully and under preparing status will be assigned to available delivery boy. delivery boy will get information about order like pickup hotel address, delivery location, mobile number of customer
 delivery boy have to update status of order once it is picked up from retrarants and after it it delivered to customer.
 once delivery boy logged in to their account they will be available to take orders and orders will be assigned to them  automatically based on availibility
 
-<-- future if possible delivery boys will be recruted by staff of system --> 
-<-- payments system> 
+
+## NonFunctional Requirement:
+
+### Security
+Registered Customer will allowed to place an order.	
+System will provide access to  the content , operations using Role based security (Authorization) (Permissions based on Role)
+
+System will automatically log of  all stakeholder after some time due to inactiveness.
+System  will internally maintain secure communiction channel between Servers ( Web Servers, App Servers, databse Server)
+Sensitive data will be always encrypted across communcation.
+
+### Availability
+uptime:   24* 7  available  99.999%
+	
+### Maintainability:
+A database software will be used to maintain System data Persistence.
+A readymade Web Server will be installed to host food delivery portal (Web Site).
+
+### Accessibility:
+only registered customer will be able to place an order after authentication.
+Hotelier can reject or approve  orders, based on availibility.
+
+### Durability:
+System will retain customer order cart for 30 minutes even though customer loose internet connection and join again.
+
+### Modularity:
+System will designed and developed using reusable, independent or dependent business senarios in the form of modules.
+These modules will be loosely coupled and highly cohesive.
