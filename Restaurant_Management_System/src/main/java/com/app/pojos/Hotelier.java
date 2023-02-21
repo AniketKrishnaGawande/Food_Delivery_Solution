@@ -20,7 +20,7 @@ import lombok.Setter;
 @AllArgsConstructor 
 @Getter 
 @Setter
-public class hotelier extends BaseEntity{
+public class Hotelier extends BaseEntity{
 	@Column(length = 20)
 	private String hName;
 	
@@ -30,15 +30,15 @@ public class hotelier extends BaseEntity{
 	private int rating;
 	
 	@OneToMany(mappedBy = "hotelMenu",cascade = CascadeType.ALL,orphanRemoval = true)
-	private List<hotel_menu> menus=new ArrayList<>();
+	private List<HotelMenu> menus=new ArrayList<>();
 	
-	public void addMenu(hotel_menu hm)
+	public void addMenu(HotelMenu hm)
 	{
 		menus.add(hm);
 		hm.setHotelMenu(this);
 	}
 	
-	public void removeMenu(hotel_menu hm)
+	public void removeMenu(HotelMenu hm)
 	{
 		menus.remove(hm);
 		hm.setHotelMenu(null);

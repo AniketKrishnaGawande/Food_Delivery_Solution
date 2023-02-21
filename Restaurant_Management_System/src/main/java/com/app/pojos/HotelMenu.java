@@ -1,16 +1,12 @@
 package com.app.pojos;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-import org.hibernate.annotations.ManyToAny;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -23,7 +19,7 @@ import lombok.Setter;
 @AllArgsConstructor 
 @Getter 
 @Setter
-public class hotel_menu extends BaseEntity{
+public class HotelMenu extends BaseEntity{
 	
 	@Column(length = 20)
 	private String mName;
@@ -35,9 +31,9 @@ public class hotel_menu extends BaseEntity{
 	@Enumerated(EnumType.STRING)
 	private Menu menu;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(name="hotelier_id")
-	private hotelier hotelMenu;
+	private Hotelier hotelMenu;
 	
 	//photo pending
 	
