@@ -1,0 +1,19 @@
+customer ::
+login :: send data if valid else error
+fetch all rest details
+fetch menu by restaurant id
+fetch by dish name
+payment :: add data into order history table;
+
+
+Hotelier :: status
+delivery boy :: status
+
+
+admin :: 
+login
+all delivery boy list and delete and recruit
+all rest details , approve and delete hotels
+rest menu
+
+
