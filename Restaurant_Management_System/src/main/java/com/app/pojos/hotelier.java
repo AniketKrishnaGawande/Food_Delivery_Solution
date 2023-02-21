@@ -24,7 +24,7 @@ public class hotelier extends BaseEntity{
 	@Column(length = 20)
 	private String hName;
 	
-	@Column(length = 20)
+	@Column(length = 100)
 	private String hAddress;
 	
 	private int rating;
