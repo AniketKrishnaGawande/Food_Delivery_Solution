@@ -1,5 +1,9 @@
 package com.app.pojos;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,8 +15,10 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class Customer {
-	private String email;
-	private String password;
+@Entity
+@Table(name = "Customers")
+public class Customer extends User {
+	@Column(length = 50)
+	private String address;
 
 }
