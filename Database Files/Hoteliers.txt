@@ -7,3 +7,4 @@
 
 --> insert into hotels (h_address,h_name,rating)values ("pune","JW Marriott",8);
 --> select * from hotels;
+--> delete from hotels where id=1;

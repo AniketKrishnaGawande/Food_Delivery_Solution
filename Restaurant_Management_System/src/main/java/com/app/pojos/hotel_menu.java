@@ -10,8 +10,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.ManyToAny;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -35,12 +33,10 @@ public class hotel_menu extends BaseEntity{
 	@Enumerated(EnumType.STRING)
 	private Menu menu;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="hotelier_id")
+	@ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+	@JoinColumn(name="hotelier_id",nullable=false)
 	private hotelier hotelMenu;
 	
 	//photo pending
 	
-	
-
 }
