@@ -2,6 +2,6 @@ package com.app.pojos;
 
 public enum Role {
 	
-	ADMIN,CUSTOMER
+	ADMIN,CUSTOMER,DELIVERY_BOY,RESTAURANT
 
 }
