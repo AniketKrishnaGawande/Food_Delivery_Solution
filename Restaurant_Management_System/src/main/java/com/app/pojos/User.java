@@ -14,6 +14,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+
+@Table(name="User_tbl")
 @MappedSuperclass
 @NoArgsConstructor
 @AllArgsConstructor
