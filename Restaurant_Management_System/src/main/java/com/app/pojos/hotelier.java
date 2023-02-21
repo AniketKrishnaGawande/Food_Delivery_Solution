@@ -3,6 +3,7 @@ package com.app.pojos;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
@@ -28,9 +29,19 @@ public class hotelier extends BaseEntity{
 	
 	private int rating;
 	
-	@OneToMany()
+	@OneToMany(mappedBy = "hotelMenu", cascade = CascadeType.ALL,orphanRemoval = true)
 	private List<hotel_menu> menus=new ArrayList<>();
 	
-	// menu relation pending
+	public void addMenu(hotel_menu hm)
+	{
+		menus.add(hm);
+		hm.setHotelMenu(this);
+	}
+	
+	public void removeMenu(hotel_menu hm)
+	{
+		menus.remove(hm);
+		hm.setHotelMenu(null);
+	}
 
 }

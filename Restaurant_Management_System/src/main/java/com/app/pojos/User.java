@@ -16,15 +16,10 @@ import lombok.ToString;
 
 
 @Table(name="User_tbl")
-@NoArgsConstructor 
-@AllArgsConstructor 
-@Getter 
-=======
 @MappedSuperclass
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
-
 @Setter
 @ToString(exclude = "password")
 public class User extends BaseEntity {
