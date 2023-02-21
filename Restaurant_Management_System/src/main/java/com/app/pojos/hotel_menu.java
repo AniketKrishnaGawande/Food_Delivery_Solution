@@ -1,7 +1,10 @@
 package com.app.pojos;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -28,6 +31,8 @@ public class hotel_menu extends BaseEntity{
 	
 	@Column(length = 20)
 	private String description;
+	
+	@Enumerated(EnumType.STRING)
 	private Menu menu;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
