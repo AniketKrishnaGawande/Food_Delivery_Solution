@@ -37,7 +37,6 @@ public class Hotelier extends BaseEntity{
 
 	private int rating;
 	
-	private
 
 	@OneToMany(mappedBy = "hotelMenu", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
 	private List<HotelMenu> menus = new ArrayList<>();
@@ -45,12 +44,8 @@ public class Hotelier extends BaseEntity{
 	public void addMenu(HotelMenu hm) {
 		menus.add(hm);
 		hm.setHotelMenu(this);
-<<<<<<< HEAD
 	}
 
-=======
-	}	
->>>>>>> 2630361dc43f729bc2739c8e994f2441431ea014
 	public void removeMenu(HotelMenu hm)
 	{
 		menus.remove(hm);

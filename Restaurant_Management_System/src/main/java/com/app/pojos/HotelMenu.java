@@ -38,16 +38,13 @@ public class HotelMenu extends BaseEntity {
 
 	@Enumerated(EnumType.STRING)
 	private Menu menu;
-<<<<<<< HEAD
+
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="hotelier_id")
-=======
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "hotelier_id", nullable = false)
 @JsonBackReference
->>>>>>> 2630361dc43f729bc2739c8e994f2441431ea014
+
 	private Hotelier hotelMenu;
 
 	// photo pending
