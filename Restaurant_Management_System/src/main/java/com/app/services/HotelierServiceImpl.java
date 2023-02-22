@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.app.pojos.Hotelier;
 import com.app.repositories.HotelierRepository;
+
 @Service
 @Transactional
 public class HotelierServiceImpl implements HotelierServiceIf {
@@ -19,7 +20,10 @@ public class HotelierServiceImpl implements HotelierServiceIf {
 	@Override
 	public List<Hotelier> fetchAllHotels() {
 		// TODO Auto-generated method stub
+		System.out.println("service before");
 		List<Hotelier> hotelList = hotelRepo.findAll();
+		System.out.println("service after");
+		hotelList.get(0).getMenus().size();
 		return hotelList;
 	}
 

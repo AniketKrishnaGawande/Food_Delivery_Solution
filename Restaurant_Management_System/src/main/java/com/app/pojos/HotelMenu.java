@@ -10,33 +10,40 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Entity
-@Table(name="hotel_menu")
-@NoArgsConstructor 
-@AllArgsConstructor 
-@Getter 
+@Table(name = "hotel_menu")
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
 @Setter
-public class HotelMenu extends BaseEntity{
-	
+@ToString(exclude = "hotelMenu")
+public class HotelMenu extends BaseEntity {
+
 	@Column(length = 20)
 	private String mName;
 	private double mPrice;
-	
+
 	@Column(length = 20)
 	private String description;
-	
+
 	@Enumerated(EnumType.STRING)
 	private Menu menu;
-	
-	@ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-	@JoinColumn(name="hotelier_id",nullable=false)
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "hotelier_id", nullable = false)
+@JsonBackReference
 	private Hotelier hotelMenu;
-	
-	//photo pending
-	
+
+	// photo pending
+
 }
