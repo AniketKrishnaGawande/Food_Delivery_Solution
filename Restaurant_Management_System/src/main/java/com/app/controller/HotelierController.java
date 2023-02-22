@@ -20,7 +20,11 @@ public class HotelierController {
 	@GetMapping
 	public List<Hotelier> getAllHotels() {
 
-		return hotelService.fetchAllHotels();
+		System.out.println("before controller");
+		List<Hotelier> list = hotelService.fetchAllHotels();
+		System.out.println("after controller");
+		System.out.println(list);
+		return list;
 	}
 
 }
