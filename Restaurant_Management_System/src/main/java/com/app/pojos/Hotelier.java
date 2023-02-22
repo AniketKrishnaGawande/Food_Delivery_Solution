@@ -14,6 +14,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder.Default;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -25,7 +26,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @Getter
 @Setter
-@ToString
+@ToString(exclude = "password")
 @JsonInclude(value =Include.NON_NULL )
 public class Hotelier extends BaseEntity{
 	@Column(length = 20)
@@ -39,9 +40,23 @@ public class Hotelier extends BaseEntity{
 	
 	private boolean status=false;
 	
-
+	private String email;
+	
+	private String password;
+		
 	@OneToMany(mappedBy = "hotelMenu", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
 	private List<HotelMenu> menus = new ArrayList<>();
+	
+	//dto purpose
+	public Hotelier(String hName, String hAddress, int rating,String email, String Password) {
+		
+		this.hName = hName;
+		this.hAddress = hAddress;
+		this.rating = rating;
+		this.status=false;
+		this.email=email;
+		this.password=password;
+	}
 
 	public void addMenu(HotelMenu hm) {
 		menus.add(hm);

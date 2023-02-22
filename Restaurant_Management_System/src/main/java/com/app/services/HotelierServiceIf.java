@@ -2,6 +2,7 @@ package com.app.services;
 
 import java.util.List;
 
+import com.app.dto.HotelierDTO;
 import com.app.pojos.Hotelier;
 
 public interface HotelierServiceIf {
@@ -9,7 +10,7 @@ public interface HotelierServiceIf {
 	
 	public String deleteHotel(long id);
 	
-	public String addHotel(Hotelier hotel);
+	public String RegisterHotel(HotelierDTO hotel);
 	
 	public String approveHotel(long id);
 

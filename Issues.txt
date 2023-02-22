@@ -1,0 +1,3 @@
+-- hotelname did not get fetched when we try to fetch hotel menus but vice versa is working 
+
+-- password is getting saved in db pronlem solved

@@ -7,6 +7,7 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.app.dto.HotelierDTO;
 import com.app.pojos.Hotelier;
 import com.app.repositories.HotelierRepository;
 
@@ -40,9 +41,11 @@ public class HotelierServiceImpl implements HotelierServiceIf {
 	}
 
 	@Override
-	public String addHotel(Hotelier hotel) {
-		if(hotel !=null)
+	public String RegisterHotel(HotelierDTO hotels) {
+		if(hotels !=null)
 		{
+			Hotelier hotel=new Hotelier(hotels.getHName(),hotels.getHAddress(),hotels.getRating(),hotels.getEmail(),hotels.getPassword());
+			hotel.setStatus(false);
 			hotelRepo.save(hotel);
 			return "Hotel added successful";
 		}

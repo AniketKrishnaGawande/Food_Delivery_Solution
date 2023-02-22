@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.app.dto.HotelierDTO;
 import com.app.pojos.Hotelier;
 import com.app.services.HotelierServiceIf;
 
@@ -30,10 +31,10 @@ public class HotelierController {
 		return list;
 	}
 	
-	@PostMapping("/addHotel")
-	public String addHotels(@RequestBody Hotelier hotel)
+	@PostMapping("/RegisterHotel")
+	public String addHotels(@RequestBody HotelierDTO hotel)
 	{
-		return hotelService.addHotel(hotel);
+		return hotelService.RegisterHotel(hotel);
 	}
 	
 	@GetMapping("/delete/{id}")
