@@ -27,9 +27,29 @@ public class HotelierServiceImpl implements HotelierServiceIf {
 		return hotelList;
 	}
 	
-	public void deleteHotel(long id)
+	//custom exception needed or exception
+	public String deleteHotel(long id)
 	{
+		if(hotelRepo.existsById(id))
+		{
 		hotelRepo.deleteById(id);
+		return"Hotel deleted successful ";
+		}
+		return "Give valid Id";
+		
 	}
+
+	@Override
+	public String addHotel(Hotelier hotel) {
+		if(hotel !=null)
+		{
+			hotelRepo.save(hotel);
+			return "Hotel added successful";
+		}
+		return "Give Correct Hotel Details";
+				
+	}
+	
+	
 
 }

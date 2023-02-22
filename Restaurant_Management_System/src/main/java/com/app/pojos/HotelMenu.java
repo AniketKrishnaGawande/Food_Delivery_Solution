@@ -44,7 +44,6 @@ public class HotelMenu extends BaseEntity {
 	@JoinColumn(name="hotelier_id")
 
 @JsonBackReference
-
 	private Hotelier hotelMenu;
 
 	// photo pending
