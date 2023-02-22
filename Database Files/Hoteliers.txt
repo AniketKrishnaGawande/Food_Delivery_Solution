@@ -4,8 +4,9 @@
 
 --> select * from hotel_menu;
 --> insert into hotel_menu (description,m_name,m_price,menu,hotelier_id)values("Delicious","Paneer Laziz",2500,"BREAKFAST",1);
---> insert into hotel_menu (description,m_name,m_price,menu,hotelier_id)values("Spicy","Paneer Tadka",3500,"Dinner",1);
+--> insert into hotel_menu (description,m_name,m_price,menu,hotelier_id)values("Spicy","Paneer Tadka",3500,"DINNER",1);
 
---> insert into hotels (h_address,h_name,rating)values ("pune","JW Marriott",8);
+--> insert into hotels (h_address,h_name,rating,status)values ("pune","JW Marriott",8,0);
+--> insert into hotels (h_address,h_name,rating,status)values ("mumbai","pride",9,0);
 --> select * from hotels;
 --> delete from hotels where id=1;

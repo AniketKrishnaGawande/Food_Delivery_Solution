@@ -49,6 +49,16 @@ public class HotelierServiceImpl implements HotelierServiceIf {
 		return "Give Correct Hotel Details";
 				
 	}
+
+	@Override
+	public String approveHotel(long id) {
+		if(hotelRepo.existsById(id))
+		{
+			hotelRepo.getById(id).setStatus(true);
+			return "Approved";
+		}
+		return "Enter valid Hotel Id";
+	}
 	
 	
 

@@ -37,8 +37,10 @@ public class Hotelier extends BaseEntity{
 
 	private int rating;
 	
+	private boolean status=false;
+	
 
-	@OneToMany(mappedBy = "hotelMenu", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "hotelMenu", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
 	private List<HotelMenu> menus = new ArrayList<>();
 
 	public void addMenu(HotelMenu hm) {

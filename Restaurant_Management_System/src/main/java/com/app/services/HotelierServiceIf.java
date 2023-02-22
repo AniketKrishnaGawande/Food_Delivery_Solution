@@ -10,5 +10,7 @@ public interface HotelierServiceIf {
 	public String deleteHotel(long id);
 	
 	public String addHotel(Hotelier hotel);
+	
+	public String approveHotel(long id);
 
 }

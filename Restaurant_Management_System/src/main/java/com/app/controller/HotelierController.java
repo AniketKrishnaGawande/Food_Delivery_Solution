@@ -42,6 +42,12 @@ public class HotelierController {
 		return hotelService.deleteHotel(id);
 	}
 	
+	@GetMapping("/approved/{id}")
+	public String approveHotel(@PathVariable Long id)
+	{
+		return hotelService.approveHotel(id);
+	}
+	
 	
 
 }
