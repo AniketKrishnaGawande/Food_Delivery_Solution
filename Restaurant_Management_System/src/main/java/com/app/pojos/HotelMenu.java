@@ -33,8 +33,8 @@ public class HotelMenu extends BaseEntity{
 	@Enumerated(EnumType.STRING)
 	private Menu menu;
 	
-	@ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-	@JoinColumn(name="hotelier_id",nullable=false)
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="hotelier_id")
 	private Hotelier hotelMenu;
 	
 	//photo pending

@@ -22,5 +22,10 @@ public class HotelierServiceImpl implements HotelierServiceIf {
 		List<Hotelier> hotelList = hotelRepo.findAll();
 		return hotelList;
 	}
+	
+	public void deleteHotel(long id)
+	{
+		hotelRepo.deleteById(id);
+	}
 
 }
