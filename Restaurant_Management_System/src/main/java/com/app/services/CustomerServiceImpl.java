@@ -7,14 +7,20 @@ import org.springframework.stereotype.Service;
 
 import com.app.dto.LoginDTO;
 import com.app.exception.CustomException;
+import com.app.pojos.CartItem;
 import com.app.pojos.Customer;
+import com.app.pojos.FoodCart;
 import com.app.repositories.CustomerRepository;
+import com.app.repositories.HotelierMenuRepository;
 
 @Service
 @Transactional
 public class CustomerServiceImpl implements CustomerServiceif {
 	@Autowired
 	private CustomerRepository custRepo;
+
+	@Autowired
+	private HotelierMenuRepository menuRepo;
 
 	@Override
 	public Customer validateLogin(LoginDTO dtls) throws CustomException {
@@ -26,10 +32,14 @@ public class CustomerServiceImpl implements CustomerServiceif {
 
 	@Override
 	public Customer registerCust(Customer cust) {
+		cust.attachCart(new FoodCart());
+		return custRepo.save(cust);
 
+	}
 
-		return 		custRepo.save(cust);
-
+	@Override
+	public Customer getCustomerById(long id) {
+		return custRepo.findById(id).orElseThrow();
 	}
 
 }

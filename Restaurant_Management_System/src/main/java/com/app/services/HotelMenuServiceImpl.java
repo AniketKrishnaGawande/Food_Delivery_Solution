@@ -20,28 +20,27 @@ public class HotelMenuServiceImpl implements HotelMenuServiceif {
 
 	@Autowired
 	private HotelierMenuRepository hotelMenuRepo;
-	
+
 	@Autowired
 	private HotelierRepository hotelRepo;
-	
+
 	@Override
 	public List<HotelMenu> fetchAllMenus() {
-		List<HotelMenu> menuList=hotelMenuRepo.findAll();
+		List<HotelMenu> menuList = hotelMenuRepo.findAll();
 		menuList.get(0).getHotelMenu().getHName();
 		return menuList;
 	}
 
 	@Override
-	public String addMenu(HotelMenuAddDto menu,long id) {
-		if(menu !=null)
-		{ System.out.println(id+"in service impl");
-			HotelMenu hMenu=new HotelMenu(menu.getMName(),menu.getMPrice(),menu.getDescription(),menu.getMenu());
+	public String addMenu(HotelMenuAddDto menu, long id) {
+		if (menu != null) {
+			System.out.println(id + "in service impl");
+			HotelMenu hMenu = new HotelMenu(menu.getMName(), menu.getMPrice(), menu.getDescription(), menu.getMenu());
 //			Hotelier hotel= hotelRepo.getById(menu.getId());
-			Hotelier hotel=hotelRepo.findById(id).orElseThrow();
+			Hotelier hotel = hotelRepo.findById(id).orElseThrow();
 			hotel.addMenu(hMenu);
 			hotelMenuRepo.save(hMenu);
-			
-			
+
 			return "Menu added successful";
 		}
 		return "Give Correct Menu Details";
@@ -49,12 +48,15 @@ public class HotelMenuServiceImpl implements HotelMenuServiceif {
 
 	@Override
 	public String removeMenu(long id) {
-		if(hotelMenuRepo.existsById(id))
-		{
+		if (hotelMenuRepo.existsById(id)) {
 			hotelMenuRepo.deleteById(id);
-		return"Menu deleted successful ";
+			return "Menu deleted successful ";
 		}
 		return "Give valid Id";
 	}
 
+	@Override
+	public HotelMenu getMenuById(long id) {
+		return hotelMenuRepo.findById(id).orElseThrow();
+	}
 }

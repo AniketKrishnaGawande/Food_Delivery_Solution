@@ -1,0 +1,1 @@
+insert into customers values(default,"aniketgwande16@gmail.com","Aniket","Gawande","Aniket19%","sainiwkadi");

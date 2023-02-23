@@ -8,5 +8,6 @@ public interface CustomerServiceif {
 	
 	public Customer validateLogin(LoginDTO dtls)throws CustomException;
 	public Customer registerCust(Customer cust);
+	public Customer getCustomerById(long id);
 
 }

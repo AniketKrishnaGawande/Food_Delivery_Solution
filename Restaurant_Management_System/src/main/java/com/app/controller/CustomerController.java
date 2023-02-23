@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.app.dto.CustomerRegistrationDTO;
 import com.app.dto.LoginDTO;
 import com.app.exception.CustomException;
 import com.app.pojos.Customer;
@@ -24,8 +25,9 @@ public class CustomerController {
 	}
 
 	@PostMapping("/register")
-	public Customer registerCustomer(@RequestBody Customer cust) {
-		return custService.registerCust(cust);
+	public Customer registerCustomer(@RequestBody CustomerRegistrationDTO cust) {
+		return custService.registerCust(new Customer(cust.getAddress(), cust.getFirstName(), cust.getLastName(),
+				cust.getPassword(), cust.getEmail()));
 
 	}
 

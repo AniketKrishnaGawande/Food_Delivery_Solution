@@ -12,5 +12,7 @@ public interface HotelMenuServiceif {
 	public String addMenu(HotelMenuAddDto menu,long id);
 	
 	public String removeMenu(long id);
+	
+	public HotelMenu getMenuById(long id);
 
 }
