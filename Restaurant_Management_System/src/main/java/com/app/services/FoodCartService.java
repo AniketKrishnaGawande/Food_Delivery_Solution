@@ -1,6 +1,7 @@
 package com.app.services;
 
 import java.util.Iterator;
+import java.util.List;
 
 import javax.transaction.Transactional;
 
@@ -34,10 +35,17 @@ public class FoodCartService {
 
 		CartItem item = itemService.createCartItem(new CartItem(), menuService.getMenuById(menuId));
 		Customer cust = custService.getCustomerById(custId);
-		
-cust.getCart().AddCartItem(item);		
+		cust.getCart().AddCartItem(item);
 
-		return null;
+		double price = 0;
+		List<CartItem> list = cust.getCart().getCartItem();
+
+		for (CartItem cartItem : list) {
+			price += cartItem.getPrice();
+		}
+		cust.getCart().setCartTotalPrice(price);
+
+		return cust.getCart();
 	}
 
 }
