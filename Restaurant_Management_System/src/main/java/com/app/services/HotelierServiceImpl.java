@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.app.dto.HotelierDTO;
+import com.app.dto.LoginDTO;
+import com.app.exception.CustomException;
 import com.app.pojos.Hotelier;
 import com.app.repositories.HotelierRepository;
 
@@ -61,6 +63,12 @@ public class HotelierServiceImpl implements HotelierServiceIf {
 			return "Approved";
 		}
 		return "Enter valid Hotel Id";
+	}
+
+	@Override
+	public Hotelier hotelLogin(LoginDTO details) throws CustomException {
+		return hotelRepo.findByEmailAndPassword(details.getEmail(), details.getPassword())
+				.orElseThrow(()-> new CustomException("Invalid details"));
 	}
 	
 	

@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.app.dto.HotelierDTO;
+import com.app.dto.LoginDTO;
+import com.app.exception.CustomException;
 import com.app.pojos.Hotelier;
 import com.app.services.HotelierServiceIf;
 
@@ -21,7 +23,7 @@ public class HotelierController {
 	@Autowired
 	private HotelierServiceIf hotelService;
 
-	@GetMapping
+	@GetMapping("/getHotelDetails")
 	public List<Hotelier> getAllHotels() {
 
 		System.out.println("before controller");
@@ -37,17 +39,26 @@ public class HotelierController {
 		return hotelService.RegisterHotel(hotel);
 	}
 	
-	@GetMapping("/delete/{id}")
+	@GetMapping("/deleteHotel/{id}")
 	public String deleteHotelById(@PathVariable Long id)
 	{
 		return hotelService.deleteHotel(id);
 	}
 	
-	@GetMapping("/approved/{id}")
+	@GetMapping("/approvedHotel/{id}")
 	public String approveHotel(@PathVariable Long id)
 	{
 		return hotelService.approveHotel(id);
 	}
+	
+	@PostMapping("/hotelierLogin")
+	public Hotelier validateLogin(@RequestBody LoginDTO login) throws CustomException
+	{
+		return hotelService.hotelLogin(login);
+	}
+	
+	
+	
 	
 	
 

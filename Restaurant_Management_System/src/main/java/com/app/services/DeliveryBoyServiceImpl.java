@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.app.dto.DBoyRegisterDTO;
+import com.app.dto.LoginDTO;
+import com.app.exception.CustomException;
 import com.app.pojos.DeliveryBoy;
 import com.app.repositories.DeliveryBoyRepository;
 @Service
@@ -44,5 +46,11 @@ public class DeliveryBoyServiceImpl implements DeliveryBoyServiceif {
 		return "Enter valid Id";
 	}
 
-	//login
+	@Override
+	public DeliveryBoy validateLogin(LoginDTO details) throws CustomException {
+		// TODO Auto-generated method stub
+		return deliveryRepo.findByEmailAndPassword(details.getEmail(),details.getPassword()).orElseThrow(()->new CustomException("Invalid Credentials"));
+	}
+
+	
 }

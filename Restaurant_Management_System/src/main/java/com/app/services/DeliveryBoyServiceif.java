@@ -3,6 +3,8 @@ package com.app.services;
 import java.util.List;
 
 import com.app.dto.DBoyRegisterDTO;
+import com.app.dto.LoginDTO;
+import com.app.exception.CustomException;
 import com.app.pojos.DeliveryBoy;
 
 public interface DeliveryBoyServiceif {
@@ -13,6 +15,6 @@ public interface DeliveryBoyServiceif {
 	
 	public String deleteDeliveryBoy(long id);
 	
-	//login
+	public DeliveryBoy validateLogin(LoginDTO details)throws CustomException;
 
 }

@@ -10,3 +10,22 @@
 --> insert into hotels (h_address,h_name,rating,status)values ("mumbai","pride",9,0);
 --> select * from hotels;
 --> delete from hotels where id=1;
+
+--------------------------------------------------------------------------
+
+Customer :
+1. Customer Register : Working 
+-- validations required 
+2. Customer Login : Working 
+-- validations required
+
+Querry :
+1. select * from Customers;
+2. Inserting Customer Records :
+
+insert into Customers (email,first_name,last_name,password,address) values("AniketGawande@gmail.com","Aniket","Gawande","Aniket@123","Pune"),
+("SwanandKale@gmail.com","Swanand","Kale","Swanand@123","Pune"),
+("SantoshJadhav@gmail.com","Santosh","Jadhav","Santosh@123","Beed"),
+("PathGaikwad@gmail.com","Parth","Gaikwad","Parth@123","Rajasthan"),("NarendraPawar@gmail.com","Narendra","Pawar","Narendra@123","Pune"),("RohitPuranik@gmail.com","Rohit","Puranik","Rohit@123","Pune");
+
+-- when we fire querry through database and trying to login then cart giving null inseted of [] brackets

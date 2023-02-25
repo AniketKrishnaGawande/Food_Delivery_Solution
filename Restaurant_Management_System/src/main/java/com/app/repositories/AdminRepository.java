@@ -5,10 +5,9 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.app.pojos.Hotelier;
+import com.app.pojos.Admin;
 @Repository
-public interface HotelierRepository extends JpaRepository<Hotelier, Long> {
-	
-	Optional<Hotelier> findByEmailAndPassword(String email,String password);
+public interface AdminRepository extends JpaRepository<Admin, Long>{
 
+	Optional<Admin> findByEmailAndPassword(String email,String password);
 }

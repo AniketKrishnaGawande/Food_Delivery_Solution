@@ -11,11 +11,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.app.dto.DBoyRegisterDTO;
+import com.app.dto.LoginDTO;
+import com.app.exception.CustomException;
 import com.app.pojos.DeliveryBoy;
 import com.app.services.DeliveryBoyServiceif;
 
 @RestController
-@RequestMapping("/DeliveryBoy")
+@RequestMapping("/deliveryBoy")
 public class DeliveryBoyController {
 
 	@Autowired 
@@ -29,10 +31,16 @@ public class DeliveryBoyController {
 		return list;
 	}
 	
-	@PostMapping("/RegisterDeliveryBoy")
+	@PostMapping("/registerDeliveryBoy")
 	public String addDeliveryBoy(@RequestBody DBoyRegisterDTO boy)
 	{
 		return deliveryService.registerDeliveryBoy(boy);
+	}
+	
+	@PostMapping("/login")
+	public DeliveryBoy validateLogin(@RequestBody LoginDTO loginDetails)throws CustomException
+	{
+		return deliveryService.validateLogin(loginDetails);
 	}
 	
 	@GetMapping("/delete/{id}")

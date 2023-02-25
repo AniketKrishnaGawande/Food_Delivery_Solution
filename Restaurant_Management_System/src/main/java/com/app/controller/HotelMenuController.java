@@ -25,19 +25,19 @@ public class HotelMenuController {
 	@Autowired
 	private HotelMenuServiceif hotelMenuService;
 	
-	@GetMapping
+	@GetMapping("/getAllHotelMenus")
 	public List<HotelMenu> getAllHotelMenus() {
 
 		return hotelMenuService.fetchAllMenus();
 	}
 	
-	@PostMapping("/addMenu/{id}")
+	@PostMapping("/addHotelMenus/{id}")
 	public String addMenu(@RequestBody HotelMenuAddDto menu,@PathVariable Long id)
 	{
 		return hotelMenuService.addMenu(menu, id);
 	}
 	
-	@GetMapping("/deleteMenu/{id}")
+	@GetMapping("/deleteHotelMenus/{id}")
 	public String deleteMenu(@PathVariable Long id)
 	{
 		return hotelMenuService.removeMenu(id);

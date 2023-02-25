@@ -19,12 +19,12 @@ public class CustomerController {
 	@Autowired
 	private CustomerServiceif custService;
 
-	@PostMapping("/login")
+	@PostMapping("/customerLogin")
 	public Customer validateLogin(@RequestBody LoginDTO logindtls) throws CustomException {
 		return custService.validateLogin(logindtls);
 	}
 
-	@PostMapping("/register")
+	@PostMapping("/customerRegister")
 	public Customer registerCustomer(@RequestBody CustomerRegistrationDTO cust) {
 		return custService.registerCust(new Customer(cust.getAddress(), cust.getFirstName(), cust.getLastName(),
 				cust.getPassword(), cust.getEmail()));
