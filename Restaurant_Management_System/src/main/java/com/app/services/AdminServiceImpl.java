@@ -16,12 +16,14 @@ public class AdminServiceImpl implements AdminServiceIf {
 	@Autowired
 	private AdminRepository adminRepo;
 	
+	//Admin Login in ServiceLayer
 	@Override
 	public Admin validateLogin(LoginDTO details) throws CustomException {
-		// TODO Auto-generated method stub
-		return adminRepo.findByEmailAndPassword(details.getEmail(),details.getPassword()).orElseThrow(()-> new CustomException("Invalid Login"));
+		return adminRepo.findByEmailAndPassword(details.getEmail(),details.getPassword())
+				.orElseThrow(()-> new CustomException("Invalid Login"));
 	}
 
+	//Admin Registration in ServiceLayer
 	@Override
 	public Admin registerAdmin(Admin admin) {
 		

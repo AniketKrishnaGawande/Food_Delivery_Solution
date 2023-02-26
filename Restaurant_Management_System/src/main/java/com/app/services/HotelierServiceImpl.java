@@ -20,6 +20,7 @@ public class HotelierServiceImpl implements HotelierServiceIf {
 	@Autowired
 	private HotelierRepository hotelRepo;
 
+	//To fetch All Hotel Details
 	@Override
 	public List<Hotelier> fetchAllHotels() {
 		// TODO Auto-generated method stub
@@ -31,6 +32,7 @@ public class HotelierServiceImpl implements HotelierServiceIf {
 	}
 	
 	//custom exception needed or exception
+	//To delete Hotel by id
 	public String deleteHotel(long id)
 	{
 		if(hotelRepo.existsById(id))
@@ -42,6 +44,7 @@ public class HotelierServiceImpl implements HotelierServiceIf {
 		
 	}
 
+	//To register Hotel
 	@Override
 	public String RegisterHotel(HotelierDTO hotels) {
 		if(hotels !=null)
@@ -55,6 +58,7 @@ public class HotelierServiceImpl implements HotelierServiceIf {
 				
 	}
 
+	//To Approved Hotel By Id
 	@Override
 	public String approveHotel(long id) {
 		if(hotelRepo.existsById(id))
@@ -65,6 +69,7 @@ public class HotelierServiceImpl implements HotelierServiceIf {
 		return "Enter valid Hotel Id";
 	}
 
+	//To Login hotel
 	@Override
 	public Hotelier hotelLogin(LoginDTO details) throws CustomException {
 		return hotelRepo.findByEmailAndPassword(details.getEmail(), details.getPassword())

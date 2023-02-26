@@ -9,12 +9,16 @@ import com.app.pojos.DeliveryBoy;
 
 public interface DeliveryBoyServiceif {
 	
+	//Get Delivery Boy Details
 	List<DeliveryBoy> getAllDeliveryBoy();
 	
+	//Register Delivery Boy
 	public String registerDeliveryBoy(DBoyRegisterDTO boy);
 	
+	//Delete Record of Delivery Boy by Id
 	public String deleteDeliveryBoy(long id);
 	
+	//Login Delivery Boy
 	public DeliveryBoy validateLogin(LoginDTO details)throws CustomException;
 
 }

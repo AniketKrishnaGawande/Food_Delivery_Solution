@@ -9,5 +9,6 @@ import com.app.pojos.DeliveryBoy;
 @Repository
 public interface DeliveryBoyRepository extends JpaRepository<DeliveryBoy,Long>{
 
+	//Optional method for Delivery Boy login
 	Optional<DeliveryBoy> findByEmailAndPassword(String email,String password);
 }

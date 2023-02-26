@@ -24,6 +24,7 @@ public class HotelMenuServiceImpl implements HotelMenuServiceif {
 	@Autowired
 	private HotelierRepository hotelRepo;
 
+	//To fetch All Hotel Menus
 	@Override
 	public List<HotelMenu> fetchAllMenus() {
 		List<HotelMenu> menuList = hotelMenuRepo.findAll();
@@ -31,6 +32,7 @@ public class HotelMenuServiceImpl implements HotelMenuServiceif {
 		return menuList;
 	}
 
+	//To Add menu in Hotel
 	@Override
 	public String addMenu(HotelMenuAddDto menu, long id) {
 		if (menu != null) {
@@ -46,6 +48,7 @@ public class HotelMenuServiceImpl implements HotelMenuServiceif {
 		return "Give Correct Menu Details";
 	}
 
+	//To Remove Menu in Hotel
 	@Override
 	public String removeMenu(long id) {
 		if (hotelMenuRepo.existsById(id)) {
@@ -55,6 +58,7 @@ public class HotelMenuServiceImpl implements HotelMenuServiceif {
 		return "Give valid Id";
 	}
 
+	//Get Hotel Menu's By Id
 	@Override
 	public HotelMenu getMenuById(long id) {
 		return hotelMenuRepo.findById(id).orElseThrow();

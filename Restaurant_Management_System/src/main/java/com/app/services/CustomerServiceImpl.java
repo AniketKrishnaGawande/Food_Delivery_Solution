@@ -22,6 +22,7 @@ public class CustomerServiceImpl implements CustomerServiceif {
 	@Autowired
 	private HotelierMenuRepository menuRepo;
 
+	//Customer Login
 	@Override
 	public Customer validateLogin(LoginDTO dtls) throws CustomException {
 
@@ -30,6 +31,7 @@ public class CustomerServiceImpl implements CustomerServiceif {
 
 	}
 
+	//Customer Registration
 	@Override
 	public Customer registerCust(Customer cust) {
 		cust.attachCart(new FoodCart());
@@ -37,6 +39,7 @@ public class CustomerServiceImpl implements CustomerServiceif {
 
 	}
 
+	//Get Customer Details By Id
 	@Override
 	public Customer getCustomerById(long id) {
 		return custRepo.findById(id).orElseThrow();

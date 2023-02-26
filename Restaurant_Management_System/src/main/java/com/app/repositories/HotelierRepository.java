@@ -9,6 +9,7 @@ import com.app.pojos.Hotelier;
 @Repository
 public interface HotelierRepository extends JpaRepository<Hotelier, Long> {
 	
+	//Optional method for Hotelier login
 	Optional<Hotelier> findByEmailAndPassword(String email,String password);
 
 }

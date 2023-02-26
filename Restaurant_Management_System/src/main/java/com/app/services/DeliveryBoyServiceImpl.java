@@ -19,12 +19,14 @@ public class DeliveryBoyServiceImpl implements DeliveryBoyServiceif {
 	@Autowired
 	private DeliveryBoyRepository deliveryRepo;
 
+	//Get Delivery Boy Details
 	@Override
 	public List<DeliveryBoy> getAllDeliveryBoy() {
 		
 		return deliveryRepo.findAll();
 	}
 
+	//Register Delivery Boy
 	@Override
 	public String registerDeliveryBoy(DBoyRegisterDTO boy) {
 		if(boy!=null)
@@ -36,6 +38,7 @@ public class DeliveryBoyServiceImpl implements DeliveryBoyServiceif {
 		return "Enter valid Details";
 	}
 
+	//Delete Record of Delivery Boy by Id
 	@Override
 	public String deleteDeliveryBoy(long id) {
 		if(deliveryRepo.existsById(id))
@@ -46,6 +49,7 @@ public class DeliveryBoyServiceImpl implements DeliveryBoyServiceif {
 		return "Enter valid Id";
 	}
 
+	//Login Delivery Boy
 	@Override
 	public DeliveryBoy validateLogin(LoginDTO details) throws CustomException {
 		// TODO Auto-generated method stub

@@ -11,6 +11,7 @@ import com.app.pojos.Customer;
 @javax.transaction.Transactional
 public interface CustomerRepository extends JpaRepository<Customer, Long> {
 
+	//Optional method for Customer login
 	Optional<Customer> findByEmailAndPassword(String email,String password);
 	
 
