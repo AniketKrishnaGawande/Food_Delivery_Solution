@@ -18,34 +18,38 @@ import com.app.repositories.HotelierMenuRepository;
 
 @Service
 @Transactional
-public class FoodCartService {
+public class FoodCartService implements FoodCartServiceIf {
 
 	@Autowired
 	private FoodCartRepository cartRepo;
 
 	@Autowired
 	private CartItemService itemService;
+
 	@Autowired
 	private HotelMenuServiceif menuService;
 
 	@Autowired
 	private CustomerServiceif custService;
 
+	@Override
 	public FoodCart addToCart(long custId, long menuId) {
 
 		CartItem item = itemService.createCartItem(new CartItem(), menuService.getMenuById(menuId));
 		Customer cust = custService.getCustomerById(custId);
 		cust.getCart().AddCartItem(item);
-
 		double price = 0;
 		List<CartItem> list = cust.getCart().getCartItem();
-
 		for (CartItem cartItem : list) {
 			price += cartItem.getPrice();
 		}
 		cust.getCart().setCartTotalPrice(price);
-
 		return cust.getCart();
+	}
+
+	@Override
+	public List<CartItem> getAllCartMenu(long foodCartId) {
+		return cartRepo.findById(foodCartId).orElseThrow().getCartItem();
 	}
 
 }

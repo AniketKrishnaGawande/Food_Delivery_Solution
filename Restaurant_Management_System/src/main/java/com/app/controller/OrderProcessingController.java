@@ -22,10 +22,10 @@ public class OrderProcessingController {
 	@Autowired
 	private OrderHistoryService orderService;
 
-	@PostMapping("/placedOrder")
-	public OrderHistory acceptOrder(@RequestBody OrderHistoryDTO order) {
+	@PostMapping("/placedOrder/{custId}")
+	public OrderHistory acceptOrder(@PathVariable long custId) {
 
-		return orderService.placeOrder(order);
+		return orderService.placeOrder(custId);
 
 	}
 	

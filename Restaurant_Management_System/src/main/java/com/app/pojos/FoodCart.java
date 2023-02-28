@@ -33,10 +33,14 @@ public class FoodCart extends BaseEntity {
 	@JoinColumn(name = "customer_id")
 	@JsonBackReference
 	private Customer customer;
-	@OneToMany(fetch = FetchType.EAGER)
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<CartItem> cartItem = new ArrayList<CartItem>();
 
 	public void AddCartItem(CartItem cartItem) {
 		this.cartItem.add(cartItem);
+	}
+
+	public void reduceCartTotalPrice(double price) {
+		cartTotalPrice = cartTotalPrice - price;
 	}
 }

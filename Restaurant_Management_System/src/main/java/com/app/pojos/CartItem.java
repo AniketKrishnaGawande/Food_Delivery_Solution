@@ -18,7 +18,7 @@ import lombok.ToString;
 @Entity
 @Table(name = "cart_item")
 public class CartItem extends BaseEntity {
-	
+
 	private int quantity;
 	@OneToOne
 	private HotelMenu menu;
@@ -30,4 +30,7 @@ public class CartItem extends BaseEntity {
 		this.quantity = 1;
 	}
 
+	public void removeMenu() {
+		menu = null;
+	}
 }

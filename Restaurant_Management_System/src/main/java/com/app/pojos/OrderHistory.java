@@ -2,6 +2,7 @@ package com.app.pojos;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -30,7 +31,7 @@ import lombok.ToString;
 public class OrderHistory extends BaseEntity {
 	@CreationTimestamp
 	private LocalDate dateOfPlacement;
-
+	
 	private double price;
 
 	@ManyToOne(fetch = FetchType.EAGER)
@@ -41,12 +42,14 @@ public class OrderHistory extends BaseEntity {
 
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(joinColumns = @JoinColumn(name = "menu_id"), inverseJoinColumns = @JoinColumn(name = "order_id"))
-	private List<HotelMenu> menuList= new ArrayList<HotelMenu>();
+	private List<HotelMenu> menuList = new ArrayList<HotelMenu>();
 
-	
-	
-	public void addMenuList(HotelMenu menu) {
-		menuList.add(menu);
+	public void addMenuList(List<CartItem> cartItem) {
+		
+		for(CartItem item : cartItem)
+		{
+			menuList.add(item.getMenu());			
+		}
 	}
 
 	public OrderHistory(double price) {
@@ -55,7 +58,6 @@ public class OrderHistory extends BaseEntity {
 
 	public void setCust(Customer cust) {
 		customer = cust;
-		customer.addOrderHistory(this);
 	}
 
 }

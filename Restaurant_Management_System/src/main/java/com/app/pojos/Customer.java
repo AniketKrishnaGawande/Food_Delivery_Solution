@@ -29,46 +29,33 @@ public class Customer extends User {
 	private String address;
 	@OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
 	@JsonBackReference
-	private List<OrderHistory> orderhistory = new ArrayList<OrderHistory>();
-
+	private OrderHistory orderhistory;
 	@OneToOne(mappedBy = "customer", orphanRemoval = true, cascade = CascadeType.ALL)
 	private FoodCart cart;
-
-	
 	public void attachCart(FoodCart cart) {
-		this.cart=cart;
+		this.cart = cart;
 		cart.setCustomer(this);
 	}
-	
-	
-	
-	
-	
-	
-	
+
 	public Customer(String address, String firstName, String lastName, String password, String email) {
 		super(firstName, lastName, password, email);
 		// TODO Auto-generated constructor stub
 		this.address = address;
 	}
-	
-	public Customer()
-	{
-		
+
+	public Customer() {
+
 	}
 
 	public void addOrderHistory(OrderHistory hs) {
-		orderhistory.add(hs);
+		orderhistory= hs;
+		hs.setCust(this);
 	}
-
-
-
-
-
-
 
 	@Override
 	public String toString() {
-		return "Customer ["+super.toString()+"address=" + address + ", orderhistory=" + orderhistory + ", cart=" + cart + "]";
+		return "Customer [" + super.toString() + "address=" + address + ", orderhistory=" + orderhistory + ", cart="
+				+ cart + "]";
 	}
+	
 }

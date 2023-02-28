@@ -22,27 +22,28 @@ public class OrderHistoryService {
 	@Autowired
 	private OrderHistoryRepository orderRepo;
 	@Autowired
-	private CustomerRepository custRepo;
+	private CustomerServiceif custService;
+
 	@Autowired
-	private HotelierMenuRepository menuRepo;
+	private FoodCartServiceIf foodCartService;
 
-	public OrderHistory placeOrder(OrderHistoryDTO order) {
+	@Autowired
+	private CartItemService cartItemService;
 
-		OrderHistory orderHist = new OrderHistory(order.getPrice());
-
-		Customer cust = custRepo.findById(order.getCustId()).orElseThrow();
-		orderHist.setCust(cust);
-		HotelMenu menu = menuRepo.findById(order.getMenuId()).orElseThrow();
-		System.out.println(menu);
-		orderHist.addMenuList(menu);
+	public OrderHistory placeOrder(long custId) {
+		OrderHistory orderHist = new OrderHistory();
+		
+		Customer cust = custService.getCustomerById(custId);
+		orderHist.addMenuList(foodCartService.getAllCartMenu(cust.getCart().getId()));
+		cartItemService.deleteAllCartItems(custId);
+		cust.addOrderHistory(orderHist);
 		return orderRepo.save(orderHist);
 	}
 
+	public List<OrderHistory> getAllHistory(long id) {
 
-public List<OrderHistory> getAllHistory(long id){
-	
-	return orderRepo.findByCustomerId(id);	
-	
-}
+		return orderRepo.findByCustomerId(id);
+
+	}
 
 }
