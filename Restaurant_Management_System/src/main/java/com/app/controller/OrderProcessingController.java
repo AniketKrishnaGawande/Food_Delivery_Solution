@@ -1,5 +1,7 @@
 package com.app.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,6 +31,11 @@ public class OrderProcessingController {
 	public OrderHistory getAllOrders(@PathVariable long Custid) {
 
 		return orderService.getHistoryByCustId(Custid);
+	}
+
+	@GetMapping("/historyForHotel/{hotelId}")
+	public List<OrderHistory> getHistoryByHotelId(@PathVariable long hotelId) {
+		return orderService.getOrderHistoryByHotelId(hotelId);
 	}
 
 }

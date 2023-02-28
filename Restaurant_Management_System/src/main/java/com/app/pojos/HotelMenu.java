@@ -26,9 +26,8 @@ import lombok.ToString;
 @AllArgsConstructor
 @Getter
 @Setter
-@ToString(exclude = "hotelMenu")
+@ToString(exclude = "hotel")
 public class HotelMenu extends BaseEntity {
-
 	@Column(length = 20)
 	private String mName;
 	private double mPrice;

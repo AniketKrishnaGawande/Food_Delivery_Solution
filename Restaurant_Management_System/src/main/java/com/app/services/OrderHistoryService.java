@@ -1,5 +1,6 @@
 package com.app.services;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -41,9 +42,25 @@ public class OrderHistoryService {
 	}
 
 	public OrderHistory getHistoryByCustId(Long custId) {
-		OrderHistory history= historyRepo.findByCustomerId(custId);
+		OrderHistory history = historyRepo.findByCustomerId(custId);
 		history.getHistoryItems().size();
 		return history;
+	}
+
+	public List<OrderHistory> getOrderHistoryByHotelId(long id) {
+		List<OrderHistory> list = historyRepo.findAll();
+		List<OrderHistory> listByHotelId = new ArrayList<OrderHistory>();
+
+		for (OrderHistory history : list) {
+			for (HistoryItems item : history.getHistoryItems()) {
+				for (HotelMenu menu : item.getMenuList()) {
+					if (menu.getHotel().getId() == id) {
+						listByHotelId.add(history);
+					}
+				}
+			}
+		}
+		return listByHotelId;
 	}
 
 }
