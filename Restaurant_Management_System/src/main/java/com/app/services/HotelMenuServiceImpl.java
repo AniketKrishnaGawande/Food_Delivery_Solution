@@ -28,7 +28,7 @@ public class HotelMenuServiceImpl implements HotelMenuServiceif {
 	@Override
 	public List<HotelMenu> fetchAllMenus() {
 		List<HotelMenu> menuList = hotelMenuRepo.findAll();
-		menuList.get(0).getHotelMenu().getHName();
+		menuList.get(0).getHotel().getHName();
 		return menuList;
 	}
 

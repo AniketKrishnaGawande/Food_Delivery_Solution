@@ -34,7 +34,6 @@ public class FoodCartService implements FoodCartServiceIf {
 
 	@Override
 	public FoodCart addToCart(long custId, long menuId) {
-
 		CartItem item = itemService.createCartItem(new CartItem(), menuService.getMenuById(menuId));
 		Customer cust = custService.getCustomerById(custId);
 		cust.getCart().AddCartItem(item);
@@ -52,4 +51,14 @@ public class FoodCartService implements FoodCartServiceIf {
 		return cartRepo.findById(foodCartId).orElseThrow().getCartItem();
 	}
 
+	public void removeAllCartItems(long foodCartId, int size) {
+		cartRepo.findById(foodCartId).orElseThrow().removeAllCartItems(size);
+	}
+	
+	public FoodCart getCartByCustId(long custId) {
+		return cartRepo.findByCustomerId(custId);
+		
+	}
+	
+	
 }

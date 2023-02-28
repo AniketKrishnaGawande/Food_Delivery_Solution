@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.app.dto.OrderHistoryDTO;
 import com.app.pojos.Customer;
+import com.app.pojos.HistoryItems;
 import com.app.pojos.HotelMenu;
 import com.app.pojos.OrderHistory;
 import com.app.repositories.CustomerRepository;
@@ -20,30 +21,29 @@ import com.app.repositories.OrderHistoryRepository;
 public class OrderHistoryService {
 
 	@Autowired
-	private OrderHistoryRepository orderRepo;
+	private OrderHistoryRepository historyRepo;
+
 	@Autowired
 	private CustomerServiceif custService;
 
 	@Autowired
-	private FoodCartServiceIf foodCartService;
+	private HistoryItemService historyItemService;
 
 	@Autowired
-	private CartItemService cartItemService;
+	private FoodCartService foodCartService;
 
-	public OrderHistory placeOrder(long custId) {
-		OrderHistory orderHist = new OrderHistory();
-		
+	public void placeOrder(long custId) {
+
 		Customer cust = custService.getCustomerById(custId);
-		orderHist.addMenuList(foodCartService.getAllCartMenu(cust.getCart().getId()));
-		cartItemService.deleteAllCartItems(custId);
-		cust.addOrderHistory(orderHist);
-		return orderRepo.save(orderHist);
+		HistoryItems hItem = historyItemService.createHistoryItem(new HistoryItems(), cust.getCart().getCartItem());
+		cust.getOrderhistory().addToHistoryItemList(hItem);
+		foodCartService.removeAllCartItems(cust.getCart().getId(), cust.getCart().getCartItem().size());
 	}
 
-	public List<OrderHistory> getAllHistory(long id) {
-
-		return orderRepo.findByCustomerId(id);
-
+	public OrderHistory getHistoryByCustId(Long custId) {
+		OrderHistory history= historyRepo.findByCustomerId(custId);
+		history.getHistoryItems().size();
+		return history;
 	}
 
 }

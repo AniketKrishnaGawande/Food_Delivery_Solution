@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.CreationTimestamp;
@@ -29,35 +30,19 @@ import lombok.ToString;
 @Entity
 @Table(name = "order_history")
 public class OrderHistory extends BaseEntity {
-	@CreationTimestamp
-	private LocalDate dateOfPlacement;
-	
-	private double price;
 
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "cust_Id")
 	private Customer customer;
-
-	private OrderStatus status = OrderStatus.PENDING;
-
-	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(joinColumns = @JoinColumn(name = "menu_id"), inverseJoinColumns = @JoinColumn(name = "order_id"))
-	private List<HotelMenu> menuList = new ArrayList<HotelMenu>();
-
-	public void addMenuList(List<CartItem> cartItem) {
-		
-		for(CartItem item : cartItem)
-		{
-			menuList.add(item.getMenu());			
-		}
-	}
-
-	public OrderHistory(double price) {
-		this.price = price;
-	}
+	@OneToMany(fetch = FetchType.LAZY)
+	private List<HistoryItems> historyItems = new ArrayList<HistoryItems>();
 
 	public void setCust(Customer cust) {
 		customer = cust;
+	}
+
+	public void addToHistoryItemList(HistoryItems item) {
+		historyItems.add(item);
 	}
 
 }

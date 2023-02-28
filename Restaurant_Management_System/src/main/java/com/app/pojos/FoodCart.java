@@ -43,4 +43,15 @@ public class FoodCart extends BaseEntity {
 	public void reduceCartTotalPrice(double price) {
 		cartTotalPrice = cartTotalPrice - price;
 	}
+
+	public void removeAllCartItems(int size) {
+
+		System.out.println("********************" + size + "********************");
+		for (int i = 0; i < size; i++) {
+			cartItem.remove(0);
+			System.out.println("*************" + i + "*************");
+		}
+
+		this.cartTotalPrice = 0;
+	}
 }

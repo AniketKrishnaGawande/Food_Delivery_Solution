@@ -1,23 +1,17 @@
 package com.app.pojos;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
 @Getter
 @Setter
@@ -27,11 +21,12 @@ import lombok.ToString;
 public class Customer extends User {
 	@Column(length = 50)
 	private String address;
-	@OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
-	@JsonBackReference
-	private OrderHistory orderhistory;
 	@OneToOne(mappedBy = "customer", orphanRemoval = true, cascade = CascadeType.ALL)
+	@JsonIgnore
+	private OrderHistory orderhistory;
+	@OneToOne(mappedBy = "customer", fetch = FetchType.LAZY, orphanRemoval = true, cascade = CascadeType.ALL)
 	private FoodCart cart;
+
 	public void attachCart(FoodCart cart) {
 		this.cart = cart;
 		cart.setCustomer(this);
@@ -48,7 +43,7 @@ public class Customer extends User {
 	}
 
 	public void addOrderHistory(OrderHistory hs) {
-		orderhistory= hs;
+		orderhistory = hs;
 		hs.setCust(this);
 	}
 
@@ -57,5 +52,5 @@ public class Customer extends User {
 		return "Customer [" + super.toString() + "address=" + address + ", orderhistory=" + orderhistory + ", cart="
 				+ cart + "]";
 	}
-	
+
 }

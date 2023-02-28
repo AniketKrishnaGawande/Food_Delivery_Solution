@@ -14,7 +14,6 @@ import com.app.dto.OrderHistoryDTO;
 import com.app.pojos.OrderHistory;
 import com.app.services.OrderHistoryService;
 
-
 @RestController
 @RequestMapping("/order")
 public class OrderProcessingController {
@@ -23,18 +22,17 @@ public class OrderProcessingController {
 	private OrderHistoryService orderService;
 
 	@PostMapping("/placedOrder/{custId}")
-	public OrderHistory acceptOrder(@PathVariable long custId) {
+	public String acceptOrder(@PathVariable long custId) {
 
-		return orderService.placeOrder(custId);
+		orderService.placeOrder(custId);
+		return "history added";
 
 	}
-	
+
 	@GetMapping("getAllOrders/{Custid}")
-	public List<OrderHistory> getAllOrders(@PathVariable long Custid){
-		
-		
-		return orderService.getAllHistory(Custid);
+	public OrderHistory getAllOrders(@PathVariable long Custid) {
+
+		return orderService.getHistoryByCustId(Custid);
 	}
-	
 
 }
