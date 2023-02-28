@@ -20,7 +20,7 @@ public class HotelierServiceImpl implements HotelierServiceIf {
 	@Autowired
 	private HotelierRepository hotelRepo;
 
-	//To fetch All Hotel Details
+	// To fetch All Hotel Details
 	@Override
 	public List<Hotelier> fetchAllHotels() {
 		// TODO Auto-generated method stub
@@ -30,52 +30,47 @@ public class HotelierServiceImpl implements HotelierServiceIf {
 		hotelList.get(0).getMenus().size();
 		return hotelList;
 	}
-	
-	//custom exception needed or exception
-	//To delete Hotel by id
-	public String deleteHotel(long id)
-	{
-		if(hotelRepo.existsById(id))
-		{
-		hotelRepo.deleteById(id);
-		return"Hotel deleted successful ";
+
+	// custom exception needed or exception
+	// To delete Hotel by id
+	public String deleteHotel(long id) {
+		if (hotelRepo.existsById(id)) {
+			hotelRepo.deleteById(id);
+			return "Hotel deleted successful ";
 		}
 		return "Give valid Id";
-		
+
 	}
 
-	//To register Hotel
+	// To register Hotel
 	@Override
 	public String RegisterHotel(HotelierDTO hotels) {
-		if(hotels !=null)
-		{
-			Hotelier hotel=new Hotelier(hotels.getHName(),hotels.getHAddress(),hotels.getRating(),hotels.getEmail(),hotels.getPassword());
+		if (hotels != null) {
+			Hotelier hotel = new Hotelier(hotels.getHName(), hotels.getHAddress(), hotels.getEmail(),
+					hotels.getPassword());
 			hotel.setStatus(false);
 			hotelRepo.save(hotel);
 			return "Hotel added successful";
 		}
 		return "Give Correct Hotel Details";
-				
+
 	}
 
-	//To Approved Hotel By Id
+	// To Approved Hotel By Id
 	@Override
 	public String approveHotel(long id) {
-		if(hotelRepo.existsById(id))
-		{
-			hotelRepo.getById(id).setStatus(true);
+		if (hotelRepo.existsById(id)) {
+			hotelRepo.findById(id).orElseThrow().setStatus(true);
 			return "Approved";
 		}
 		return "Enter valid Hotel Id";
 	}
 
-	//To Login hotel
+	// To Login hotel
 	@Override
 	public Hotelier hotelLogin(LoginDTO details) throws CustomException {
 		return hotelRepo.findByEmailAndPassword(details.getEmail(), details.getPassword())
-				.orElseThrow(()-> new CustomException("Invalid details"));
+				.orElseThrow(() -> new CustomException("Invalid details"));
 	}
-	
-	
 
 }

@@ -1,13 +1,5 @@
 package com.app.dto;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-
-
-import com.app.pojos.OrderStatus;
-import com.app.pojos.User;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,8 +18,10 @@ public class DBoyRegisterDTO{
 
 	private String lastName;
 
+	private String email;
+	
 	private String password;
 
-	private String email;
+	
 
 }

@@ -11,12 +11,8 @@ public class Admin extends User{
 		super(firstName,lastName,password,email);
 		this.address=address;
 	}
-	
 	public Admin()
 	{
 		
 	}
-	
-	
-
 }

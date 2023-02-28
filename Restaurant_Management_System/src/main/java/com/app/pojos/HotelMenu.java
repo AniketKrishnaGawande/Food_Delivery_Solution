@@ -26,9 +26,8 @@ import lombok.ToString;
 @AllArgsConstructor
 @Getter
 @Setter
-@ToString(exclude = "hotelMenu")
+@ToString(exclude = "hotel")
 public class HotelMenu extends BaseEntity {
-
 	@Column(length = 20)
 	private String mName;
 	private double mPrice;
@@ -39,10 +38,10 @@ public class HotelMenu extends BaseEntity {
 	@Enumerated(EnumType.STRING)
 	private Menu menu;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(name="hotelier_id")
 	@JsonBackReference
-	private Hotelier hotelMenu;
+	private Hotelier hotel;
 	
 	//for dto purpose
 	public HotelMenu(String mName,double mPrice,String mDesc,Menu menu)

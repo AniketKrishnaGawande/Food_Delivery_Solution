@@ -44,15 +44,15 @@ public class Hotelier extends BaseEntity{
 	
 	private String password;
 		
-	@OneToMany(mappedBy = "hotelMenu", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "hotel", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
 	private List<HotelMenu> menus = new ArrayList<>();
 	
 	//dto purpose
-	public Hotelier(String hName, String hAddress, int rating,String email, String Password) {
+	public Hotelier(String hName, String hAddress,String email, String password) {
 		
 		this.hName = hName;
 		this.hAddress = hAddress;
-		this.rating = rating;
+		this.rating = 0;
 		this.status=false;
 		this.email=email;
 		this.password=password;
@@ -60,13 +60,13 @@ public class Hotelier extends BaseEntity{
 
 	public void addMenu(HotelMenu hm) {
 		menus.add(hm);
-		hm.setHotelMenu(this);
+		hm.setHotel(this);
 	}
 
 	public void removeMenu(HotelMenu hm)
 	{
 		menus.remove(hm);
-		hm.setHotelMenu(null);
+		hm.setHotel(null);
 	}
 
 	}

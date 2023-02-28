@@ -1,0 +1,15 @@
+*
+{
+    margin-top: 0px;
+}
+.Header {
+    text-align: center;
+    font-size: 18px;
+    background-color: rgb(127, 197, 197);
+    padding-top: 10px;
+    padding-bottom: 4px;
+    margin-top: 0px;
+}
+.font-link{
+    font-family: Shantell Sans;
+}

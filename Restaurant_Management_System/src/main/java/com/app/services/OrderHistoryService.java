@@ -1,5 +1,6 @@
 package com.app.services;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.app.dto.OrderHistoryDTO;
 import com.app.pojos.Customer;
+import com.app.pojos.HistoryItems;
 import com.app.pojos.HotelMenu;
 import com.app.pojos.OrderHistory;
 import com.app.repositories.CustomerRepository;
@@ -20,29 +22,45 @@ import com.app.repositories.OrderHistoryRepository;
 public class OrderHistoryService {
 
 	@Autowired
-	private OrderHistoryRepository orderRepo;
+	private OrderHistoryRepository historyRepo;
+
 	@Autowired
-	private CustomerRepository custRepo;
+	private CustomerServiceif custService;
+
 	@Autowired
-	private HotelierMenuRepository menuRepo;
+	private HistoryItemService historyItemService;
 
-	public OrderHistory placeOrder(OrderHistoryDTO order) {
+	@Autowired
+	private FoodCartService foodCartService;
 
-		OrderHistory orderHist = new OrderHistory(order.getPrice());
+	public void placeOrder(long custId) {
 
-		Customer cust = custRepo.findById(order.getCustId()).orElseThrow();
-		orderHist.setCust(cust);
-		HotelMenu menu = menuRepo.findById(order.getMenuId()).orElseThrow();
-		System.out.println(menu);
-		orderHist.addMenuList(menu);
-		return orderRepo.save(orderHist);
+		Customer cust = custService.getCustomerById(custId);
+		HistoryItems hItem = historyItemService.createHistoryItem(new HistoryItems(), cust.getCart().getCartItem());
+		cust.getOrderhistory().addToHistoryItemList(hItem);
+		foodCartService.removeAllCartItems(cust.getCart().getId(), cust.getCart().getCartItem().size());
 	}
 
+	public OrderHistory getHistoryByCustId(Long custId) {
+		OrderHistory history = historyRepo.findByCustomerId(custId);
+		history.getHistoryItems().size();
+		return history;
+	}
 
-public List<OrderHistory> getAllHistory(long id){
-	
-	return orderRepo.findByCustomerId(id);	
-	
-}
+	public List<OrderHistory> getOrderHistoryByHotelId(long id) {
+		List<OrderHistory> list = historyRepo.findAll();
+		List<OrderHistory> listByHotelId = new ArrayList<OrderHistory>();
+
+		for (OrderHistory history : list) {
+			for (HistoryItems item : history.getHistoryItems()) {
+				for (HotelMenu menu : item.getMenuList()) {
+					if (menu.getHotel().getId() == id) {
+						listByHotelId.add(history);
+					}
+				}
+			}
+		}
+		return listByHotelId;
+	}
 
 }

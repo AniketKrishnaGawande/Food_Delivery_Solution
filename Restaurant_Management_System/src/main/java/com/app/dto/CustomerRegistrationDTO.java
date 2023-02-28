@@ -1,8 +1,5 @@
 package com.app.dto;
 
-import javax.persistence.Column;
-import javax.validation.constraints.Email;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,12 +13,10 @@ import lombok.ToString;
 @NoArgsConstructor
 public class CustomerRegistrationDTO {
 
-	private String address;
 	private String firstName;
-
 	private String lastName;
-
-	private String password;
+	private String address;
 	private String email;
+	private String password;
 
 }
