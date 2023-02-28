@@ -12,7 +12,7 @@ public interface FoodCartRepository extends JpaRepository<FoodCart, Long> {
 	
 	
 	
-	@Query(nativeQuery =true, value =  "select * from food_cart where cust_id=:id")
+	@Query(nativeQuery =true, value =  "select * from food_cart where customer_id=:id")
 	FoodCart findByCustomerId(long id);
 
 }

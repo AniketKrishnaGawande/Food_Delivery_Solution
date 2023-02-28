@@ -22,9 +22,6 @@ public class CustomerServiceImpl implements CustomerServiceif {
 	@Autowired
 	private CustomerRepository custRepo;
 
-	@Autowired
-	private HotelierMenuRepository menuRepo;
-
 	public void removeFromCart(long custId, CartItem item) {
 		Customer cust = custRepo.findById(custId).orElseThrow();
 		cust.getCart().reduceCartTotalPrice(item.getPrice());

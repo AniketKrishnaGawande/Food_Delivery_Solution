@@ -48,11 +48,11 @@ public class Hotelier extends BaseEntity{
 	private List<HotelMenu> menus = new ArrayList<>();
 	
 	//dto purpose
-	public Hotelier(String hName, String hAddress, int rating,String email, String Password) {
+	public Hotelier(String hName, String hAddress,String email, String password) {
 		
 		this.hName = hName;
 		this.hAddress = hAddress;
-		this.rating = rating;
+		this.rating = 0;
 		this.status=false;
 		this.email=email;
 		this.password=password;

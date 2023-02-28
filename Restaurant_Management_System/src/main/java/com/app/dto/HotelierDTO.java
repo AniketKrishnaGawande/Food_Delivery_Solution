@@ -1,6 +1,5 @@
 package com.app.dto;
 
-import com.app.pojos.Menu;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,8 +17,6 @@ public class HotelierDTO {
 	private String hName;
 	
 	private String hAddress;
-
-	private int rating;
 	
 	private String email;
 	
