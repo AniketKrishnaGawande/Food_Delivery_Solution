@@ -37,14 +37,13 @@ public class Customer extends User {
 		// TODO Auto-generated constructor stub
 		this.address = address;
 	}
-
-	public Customer() {
-
-	}
-
 	public void addOrderHistory(OrderHistory hs) {
 		orderhistory = hs;
 		hs.setCust(this);
+	}
+
+	public Customer() {
+
 	}
 
 	@Override
