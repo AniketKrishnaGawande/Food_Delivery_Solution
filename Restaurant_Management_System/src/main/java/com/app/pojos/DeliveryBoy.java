@@ -4,7 +4,10 @@ package com.app.pojos;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -18,13 +21,17 @@ import lombok.ToString;
 @Table(name="delivery_boy")
 @Getter
 @Setter
-@ToString(exclude = "password")
+@ToString
 public class DeliveryBoy extends User{
 	
 	@Enumerated(EnumType.STRING)
 	private OrderStatus status=OrderStatus.NOT_ASSIGN;
 	
 	private boolean approvedStatus=false;
+	
+	@OneToOne
+	@JsonIgnore
+	private HistoryItems order;
 	
 	
 
@@ -37,6 +44,8 @@ public class DeliveryBoy extends User{
 		this.setLastName(lastnm);
 		this.setEmail(Email);
 		this.setPassword(passwd);
+		status=OrderStatus.NOT_ASSIGN;
+		order=null;
 	}
 	
 	

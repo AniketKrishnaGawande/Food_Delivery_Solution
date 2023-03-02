@@ -6,6 +6,7 @@ import com.app.dto.DBoyRegisterDTO;
 import com.app.dto.LoginDTO;
 import com.app.exception.CustomException;
 import com.app.pojos.DeliveryBoy;
+import com.app.pojos.HistoryItems;
 
 public interface DeliveryBoyServiceif {
 	
@@ -20,5 +21,7 @@ public interface DeliveryBoyServiceif {
 	
 	//Login Delivery Boy
 	public DeliveryBoy validateLogin(LoginDTO details)throws CustomException;
+	
+	public DeliveryBoy assignOrder(HistoryItems item);
 
 }

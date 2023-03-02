@@ -42,8 +42,12 @@ public class OrderHistoryService {
 	}
 
 	public OrderHistory getHistoryByCustId(Long custId) {
-		OrderHistory history = historyRepo.findByCustomerId(custId);
+		
+		System.out.println("********bf find***");
+        OrderHistory history = historyRepo.findByCustomerId(custId);
+		System.out.println("********af find***");
 		history.getHistoryItems().size();
+		System.out.println("********ad size***");
 		return history;
 	}
 

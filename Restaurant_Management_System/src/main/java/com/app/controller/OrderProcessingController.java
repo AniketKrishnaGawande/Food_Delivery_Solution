@@ -30,7 +30,10 @@ public class OrderProcessingController {
 	@GetMapping("getAllOrders/{Custid}")
 	public OrderHistory getAllOrders(@PathVariable long Custid) {
 
-		return orderService.getHistoryByCustId(Custid);
+		OrderHistory hist= orderService.getHistoryByCustId(Custid);
+		
+		System.out.println("********cntr *************");
+		return hist;
 	}
 
 	@GetMapping("/historyForHotel/{hotelId}")

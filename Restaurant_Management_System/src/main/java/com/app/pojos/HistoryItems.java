@@ -5,10 +5,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -29,12 +32,17 @@ public class HistoryItems extends BaseEntity {
 	private LocalDate dateOfPlacement;
 
 	private double price;
-
-	private OrderStatus status = OrderStatus.PENDING;
+	
+	@Enumerated(EnumType.STRING)
+	private HistoryItemStatus status = HistoryItemStatus.PENDING;
 
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(joinColumns = @JoinColumn(name = "menu_id"), inverseJoinColumns = @JoinColumn(name = "order_id"))
 	private List<HotelMenu> menuList = new ArrayList<HotelMenu>();
+
+	@OneToOne
+	private DeliveryBoy deliveryBoy;
+
 
 	public void addMenuList(List<CartItem> cartItem) {
 		double price = 0;
@@ -43,7 +51,7 @@ public class HistoryItems extends BaseEntity {
 			price = price + item.getMenu().getMPrice();
 		}
 		this.price = price;
-		this.status = OrderStatus.PENDING;
+		this.status = HistoryItemStatus.PENDING;
 	}
 
 	public HistoryItems(double price) {
