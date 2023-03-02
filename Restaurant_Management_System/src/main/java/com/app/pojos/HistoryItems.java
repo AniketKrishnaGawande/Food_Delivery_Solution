@@ -33,8 +33,12 @@ public class HistoryItems extends BaseEntity {
 
 	private double price;
 	
+	
 	@Enumerated(EnumType.STRING)
-	private HistoryItemStatus status = HistoryItemStatus.PENDING;
+	private HotelOrderStatus orderStatus = HotelOrderStatus.PENDING;
+	
+	@Enumerated(EnumType.STRING)
+	private DeliveryStatus deliveryStatus = DeliveryStatus.PENDING;
 
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(joinColumns = @JoinColumn(name = "menu_id"), inverseJoinColumns = @JoinColumn(name = "order_id"))
@@ -51,7 +55,9 @@ public class HistoryItems extends BaseEntity {
 			price = price + item.getMenu().getMPrice();
 		}
 		this.price = price;
-		this.status = HistoryItemStatus.PENDING;
+		this.deliveryStatus = DeliveryStatus.PENDING;
+	     orderStatus = HotelOrderStatus.PENDING;
+		
 	}
 
 	public HistoryItems(double price) {

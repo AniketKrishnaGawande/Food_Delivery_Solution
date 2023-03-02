@@ -9,7 +9,8 @@ import org.springframework.stereotype.Service;
 
 import com.app.pojos.CartItem;
 import com.app.pojos.DeliveryBoy;
-import com.app.pojos.HistoryItemStatus;
+import com.app.pojos.DeliveryStatus;
+import com.app.pojos.HotelOrderStatus;
 import com.app.pojos.HistoryItems;
 import com.app.pojos.OrderStatus;
 import com.app.repositories.HistoryItemRepository;
@@ -23,8 +24,7 @@ public class HistoryItemService {
 
 	@Autowired
 	private DeliveryBoyServiceif dBoyService;
-	
-	
+
 	public HistoryItems createHistoryItem(HistoryItems historyItem, List<CartItem> cartItem) {
 		historyItem.addMenuList(cartItem);
 		DeliveryBoy dBoy = dBoyService.assignOrder(historyItem);
@@ -32,10 +32,18 @@ public class HistoryItemService {
 		return histItemRepo.save(historyItem);
 	}
 
-	public String changeOrderStatus(Long orderId) {
+	// change status by delivery boy
+	public String changeDeliveryOrderStatus(Long orderId) {
 		HistoryItems item = histItemRepo.findById(orderId).orElseThrow();
-		item.setStatus(HistoryItemStatus.COMPLETED);
-		return "status changed";
+		item.setDeliveryStatus(DeliveryStatus.COMPLETED);
+		return "delivery status changed";
+	}
+
+	// change status by hotel
+	public String changeHotelOrderStatus(Long orderId) {
+		HistoryItems item = histItemRepo.findById(orderId).orElseThrow();
+		item.setOrderStatus(HotelOrderStatus.COMPLETED);
+		return "order status changed";
 	}
 
 }

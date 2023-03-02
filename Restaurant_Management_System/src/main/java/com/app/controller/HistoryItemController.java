@@ -15,9 +15,14 @@ public class HistoryItemController {
 	@Autowired
 	private HistoryItemService histItemService;
 
-	@PostMapping("/{orderId}")
-	public String changeOrderStatus(@PathVariable long orderId) {
-		return histItemService.changeOrderStatus(orderId);
+	@PostMapping("/hotel/{orderId}")
+	public String changeHotelOrderStatus(@PathVariable long orderId) {
+		return histItemService.changeHotelOrderStatus(orderId);
 	}
 
+	
+	@PostMapping("/dboy/{orderId}")
+	public String changeDeliveryOrderStatus(@PathVariable long orderId) {
+		return histItemService.changeDeliveryOrderStatus(orderId);
+	}
 }

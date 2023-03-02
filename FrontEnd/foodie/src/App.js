@@ -19,7 +19,12 @@ function App() {
       {/* <div className="Login">
       <Login></Login>
       </div> */}
-      
+
+
+
+
+
+
       <Routes>
       <Route exact path="/" element={<Login/>} />
       <Route exact path="/home" element={<Home/>}/>
@@ -27,11 +32,17 @@ function App() {
       <Route exact path="/DeliveryBoyregister" element={<DeliveryBoyRegister/>}/>
       <Route exact path="/Hotelierregister" element={<HotelierRegister/>}/>
       <Route exact path="/dummy" element={<Dummy></Dummy>}/>
-
       </Routes>
 
-    </div>
 
+
+
+
+
+
+
+
+    </div>
   );
   
   
