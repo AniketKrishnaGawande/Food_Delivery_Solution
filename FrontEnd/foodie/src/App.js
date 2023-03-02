@@ -7,6 +7,7 @@ import Home from './Components/Home';
 import AdminRegister from './Components/CustomerRegister';
 import DeliveryBoyRegister from './Components/DeliveryBoyRegister';
 import HotelierRegister from './Components/HotelierRegistration';
+import Dummy from './Components/Admin/Dummy';
 
 function App() {
   return(
@@ -25,6 +26,8 @@ function App() {
       <Route exact path="/Customerregister" element={<AdminRegister/>}/>
       <Route exact path="/DeliveryBoyregister" element={<DeliveryBoyRegister/>}/>
       <Route exact path="/Hotelierregister" element={<HotelierRegister/>}/>
+      <Route exact path="/dummy" element={<Dummy></Dummy>}/>
+
       </Routes>
 
     </div>

@@ -33,8 +33,10 @@ const Login=()=>
             password:pwd
         }).then(result=>{
             console.log(result.data)
-            alert("success")
+            // alert("success")
+            localStorage.setItem("item",JSON.stringify(result.data))
             navigate("/home")//dummy component
+            
         }).catch(error=>{
             alert("Service error")
             console.log(error)
@@ -96,10 +98,10 @@ const Login=()=>
 
         <div className='div2'> 
 
-            <label for='email' className='spacing'>Email : </label>
+            <label htmlFor='email' className='spacing'>Email : </label>
             <input value={email} onChange={handleEmail} type="email" id='email'/>
 
-            <label for='password' className='spacing'>Password : </label>
+            <label htmlFor='password' className='spacing'>Password : </label>
             <input value={pwd} onChange={handlePwd} type="password" id='password'/>
 
                 <select id='users'>
@@ -114,7 +116,7 @@ const Login=()=>
             <a href='/Customerregister' className='link'>Customer Registration</a>
 
             <a href='/Hotelierregister' className='link'>Hotelier Registration</a>
-
+        
             <a href='/DeliveryBoyregister' className='link'>Delivery Boy Registration</a>
             </div>
         </div>
