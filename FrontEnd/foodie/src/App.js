@@ -18,7 +18,6 @@ function App() {
       {/* <div className="Login">
       <Login></Login>
       </div> */}
-
       
       <Routes>
       <Route exact path="/" element={<Login/>} />

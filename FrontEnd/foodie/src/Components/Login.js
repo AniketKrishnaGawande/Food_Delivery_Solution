@@ -23,8 +23,8 @@ const Login=()=>
     const handleApi=()=>
     {
         // console.log({email,pwd})
-        const selectOption=document.querySelector("#users");
-        const output=selectOption.value;
+        const selectedOption=document.querySelector("#users");
+        const output=selectedOption.value;
 
         if(output==="Admin")
         {
@@ -97,17 +97,16 @@ const Login=()=>
         <div className='div2'> 
 
             <label for='email' className='spacing'>Email : </label>
-            <input value={email} onChange={handleEmail} type="text" id='email'/>
+            <input value={email} onChange={handleEmail} type="email" id='email'/>
 
             <label for='password' className='spacing'>Password : </label>
-            <input value={pwd} onChange={handlePwd} type="text" id='password'/>
+            <input value={pwd} onChange={handlePwd} type="password" id='password'/>
 
-            <select id='users'>
+                <select id='users'>
                 <option value="Admin">Admin</option>
                 <option value="Customer">Customer</option>
                 <option value="Hotelier">Hotelier</option>
                 <option value="DeliveryBoy">DeliveryBoy</option>
-                
             </select>
 
             <button onClick={handleApi}>Login</button>
