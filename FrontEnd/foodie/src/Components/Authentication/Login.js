@@ -52,7 +52,7 @@ const Login=()=>
             console.log(result.data)
             // alert("success")
             localStorage.setItem("customer",JSON.stringify(result.data))
-            navigate("/customer/home")//dummy component
+            navigate("/customer")
             
         }).catch(error=>{
             alert("Service error")

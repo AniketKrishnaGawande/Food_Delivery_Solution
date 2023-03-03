@@ -8,7 +8,9 @@ import CustomerRegister from './Components/Authentication/CustomerRegister';
 import DeliveryBoyRegister from './Components/Authentication/DeliveryBoyRegister';
 import HotelierRegister from './Components/Authentication/HotelierRegistration';
 import Dummy from './Components/Admin/Dummy';
-import CustomerHome from "./Components/Customer/js_file/Home";
+import CustomerHome from "./Components/Customer/js_file/CustomerHome";
+import Menu from "./Components/Customer/js_file/Menu";
+
 function App() {
   return(
     <div className="App">
@@ -26,7 +28,8 @@ function App() {
       <Route exact path="/DeliveryBoyregister" element={<DeliveryBoyRegister/>}/>
       <Route exact path="/Hotelierregister" element={<HotelierRegister/>}/>
       <Route exact path="/dummy" element={<Dummy></Dummy>}/>
-      <Route exact path="/customer/home" element={<CustomerHome></CustomerHome>}/>
+      <Route path="/customer"  element={<CustomerHome></CustomerHome>}/>
+      <Route path="/customer/menu" element={<Menu></Menu>} ></Route>
       </Routes>
     </div>
   );
