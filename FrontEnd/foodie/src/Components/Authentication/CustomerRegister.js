@@ -5,7 +5,7 @@ import axios from "axios";
 import "./Registration.css";
 const CustomerRegister = () => {
     const [custObj ,setObj] = useState({fname:"", lname:"",address:"",email:"",pwd:""});
-    
+    var nav = useNavigate();
     const handleChange=(e)=>
     {
             var {name,value}=e.target;
@@ -28,11 +28,12 @@ if(pwd!=cpwd)
             email:custObj.email,
             password:custObj.pwd
         }).then(result=>{
-            console.log(result.data)
-            alert("Sucessfull Register")
+         localStorage.custobject=result;
+          nav("/customerHome");
+        alert(result);
         }).catch(error=>{
             alert("Error in Registering")
-            console.log(error)
+            console.log(error);
         })
 
     }
@@ -43,7 +44,9 @@ if(pwd!=cpwd)
 	// private String email;
 	// private String password;
 
-    return (<div class="wrapper">
+    return (
+    <div >
+    <div class="wrapper">
         <div class="form-left">
             <h2 class="text-uppercase">information</h2>
             <p>
@@ -58,7 +61,7 @@ if(pwd!=cpwd)
             </div>
         </div>
 
-        <form class="form-right">
+        <div class="form-right">
             <h2 class="text-uppercase">Registration form</h2>
             <div class="row">
                 <div class="col-sm-6 mb-3">
@@ -96,9 +99,9 @@ if(pwd!=cpwd)
             <div class="form-field">
                 <button onClick={handleApi}  class="register">Register</button>
             </div>
-        </form>
+        </div>
     </div>
-
+    </div>
     )
 }
 export default CustomerRegister

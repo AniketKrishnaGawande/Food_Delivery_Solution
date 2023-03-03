@@ -8,7 +8,7 @@ import CustomerRegister from './Components/Authentication/CustomerRegister';
 import DeliveryBoyRegister from './Components/Authentication/DeliveryBoyRegister';
 import HotelierRegister from './Components/Authentication/HotelierRegistration';
 import Dummy from './Components/Admin/Dummy';
-
+import CustomerHome from "./Components/Customer/js_file/Home";
 function App() {
   return(
     <div className="App">
@@ -19,12 +19,6 @@ function App() {
       {/* <div className="Login">
       <Login></Login>
       </div> */}
-
-
-
-
-
-
       <Routes>
       <Route exact path="/" element={<Login/>} />
       <Route exact path="/home" element={<Home/>}/>
@@ -32,16 +26,8 @@ function App() {
       <Route exact path="/DeliveryBoyregister" element={<DeliveryBoyRegister/>}/>
       <Route exact path="/Hotelierregister" element={<HotelierRegister/>}/>
       <Route exact path="/dummy" element={<Dummy></Dummy>}/>
+      <Route exact path="/customerHome" element={<CustomerHome></CustomerHome>}/>
       </Routes>
-
-
-
-
-
-
-
-
-
     </div>
   );
   
