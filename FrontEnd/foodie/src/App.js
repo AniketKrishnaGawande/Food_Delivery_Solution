@@ -26,7 +26,7 @@ function App() {
       <Route exact path="/DeliveryBoyregister" element={<DeliveryBoyRegister/>}/>
       <Route exact path="/Hotelierregister" element={<HotelierRegister/>}/>
       <Route exact path="/dummy" element={<Dummy></Dummy>}/>
-      <Route exact path="/customerHome" element={<CustomerHome></CustomerHome>}/>
+      <Route exact path="/customer/home" element={<CustomerHome></CustomerHome>}/>
       </Routes>
     </div>
   );

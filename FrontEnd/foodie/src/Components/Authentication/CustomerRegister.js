@@ -14,6 +14,12 @@ const CustomerRegister = () => {
     }    
     const handleApi=()=>
     {
+
+        if(custObj.address=="" || custObj.email=="" || custObj.fname==""|| custObj.lname=="" || custObj.pwd=="" )
+        {
+            alert("Enter data")
+            return;
+        }
 var pwd = document.querySelector("#password").value;
 var cpwd = document.querySelector("#cpassword").value;
 if(pwd!=cpwd)
@@ -30,17 +36,6 @@ if(pwd!=cpwd)
         }).then(result=>{
             alert("registered successfully. Please login")
           nav("/");
-        alert(JSON.stringify(result));
-
-            console.log(result.data)
-            alert("Sucessfull Register")
-            navigate("/")
-            
-
-         localStorage.custobject=result;
-          nav("/customerHome");
-        alert(result);
-
         }).catch(error=>{
             alert("Error in Registering")
             console.log(error);
@@ -73,13 +68,16 @@ if(pwd!=cpwd)
 
         <div class="form-right">
             <h2 class="text-uppercase">Registration form</h2>
+
             <div class="row">
+            
                 <div class="col-sm-6 mb-3">
+                
                 <label for="firstName">First Name</label>
                     <input value={custObj.fname}  class="input-field"  onChange={handleChange} type="text" name='fname' id='firstName' required/>
                   
-                <inpu></inpu>
                 </div>
+                
                 <div class="col-sm-6 mb-3">
                     <label  for="lastName">Last Name</label>
                     <input value={custObj.lname}  class="input-field" onChange={handleChange} type="text" name='lname' id='lastName' required/>

@@ -34,11 +34,11 @@ const Login=()=>
         }).then(result=>{
             console.log(result.data)
             // alert("success")
-            localStorage.setItem("item",JSON.stringify(result.data))
+            localStorage.setItem("admin",JSON.stringify(result.data))
             navigate("/home")//dummy component
             
         }).catch(error=>{
-            alert("Service error")
+            alert("Invalid credentials")
             console.log(error)
         })
 
@@ -50,8 +50,10 @@ const Login=()=>
             password:pwd
         }).then(result=>{
             console.log(result.data)
-            alert("success")
-            // navigation remaining
+            // alert("success")
+            localStorage.setItem("customer",JSON.stringify(result.data))
+            navigate("/customer/home")//dummy component
+            
         }).catch(error=>{
             alert("Service error")
             console.log(error)

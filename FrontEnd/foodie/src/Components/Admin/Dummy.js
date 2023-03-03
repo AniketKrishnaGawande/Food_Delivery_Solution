@@ -3,7 +3,7 @@ function dummy()
 {
     const dummy=()=>
     {
-        const obj=JSON.parse(localStorage.getItem("item")).firstName 
+        const obj=JSON.parse(localStorage.getItem("admin")).firstName 
         return obj
     }
 
