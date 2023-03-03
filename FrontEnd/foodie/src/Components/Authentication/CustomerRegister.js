@@ -28,6 +28,9 @@ if(pwd!=cpwd)
             email:custObj.email,
             password:custObj.pwd
         }).then(result=>{
+            alert("registered successfully. Please login")
+          nav("/");
+        alert(JSON.stringify(result));
 
             console.log(result.data)
             alert("Sucessfull Register")
@@ -73,24 +76,23 @@ if(pwd!=cpwd)
             <div class="row">
                 <div class="col-sm-6 mb-3">
                 <label for="firstName">First Name</label>
-                    <input value={custObj.fname}  class="input-field"  onChange={handleChange} type="text" name='fname' id='firstName' />
+                    <input value={custObj.fname}  class="input-field"  onChange={handleChange} type="text" name='fname' id='firstName' required/>
                   
                 
                 </div>
                 <div class="col-sm-6 mb-3">
                     <label  for="lastName">Last Name</label>
-                    <input value={custObj.lname}  class="input-field" onChange={handleChange} type="text" name='lname' id='lastName' />
+                    <input value={custObj.lname}  class="input-field" onChange={handleChange} type="text" name='lname' id='lastName' required/>
                 </div>
             </div>
             <div class="mb-3">
                 <label for='address'>Address : </label>
-               <br /><input   class="input-field" value={custObj.address} onChange={handleChange} type="text" name='address' id='address' /><br />
+               <br /><input   class="input-field" value={custObj.address} onChange={handleChange} type="text" name='address' id='address'  required/><br />
             </div>
                 <div class="mb-3">
                     <label for='email'>Email : </label>
-                     <input value={custObj.email} onChange={handleChange} class="input-field" type="email" name='email' id='email' />
+                     <input value={custObj.email} onChange={handleChange} class="input-field" type="email" name='email' id='email' required/>
                 </div>
-
 
             <div class="row">
                 <div class="col-sm-6 mb-3">
