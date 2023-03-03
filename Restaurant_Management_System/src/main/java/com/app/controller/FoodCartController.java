@@ -12,8 +12,9 @@ import com.app.pojos.FoodCart;
 import com.app.services.FoodCartService;
 
 @RestController
-@RequestMapping("/foodCart")
 @CrossOrigin(origins = "http://localhost:3000")
+@RequestMapping("/foodCart")
+
 public class FoodCartController {
 	@Autowired
 	private FoodCartService foodService;

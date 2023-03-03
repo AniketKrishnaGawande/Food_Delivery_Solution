@@ -11,7 +11,7 @@ return(
       {JSON.parse(localStorage.customer).firstName+" "+JSON.parse(localStorage.customer).lastName}
             <ul class="navbar-nav">
      <li class="nav-item">
-        <a class="nav-link" href="customer/menu">Menu</a>
+        <a class="nav-link" href="/customer/menu">Menu</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/">Link</a>

@@ -19,7 +19,7 @@ import com.app.services.HotelMenuServiceif;
 
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin( origins = "http://localhost:3000")
 @RequestMapping("/hotelMenu")
 public class HotelMenuController {
 	
