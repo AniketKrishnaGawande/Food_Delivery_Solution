@@ -6,7 +6,7 @@ import "./Registration.css";
 const CustomerRegister = () => {
     var navigate=useNavigate()
     const [custObj ,setObj] = useState({fname:"", lname:"",address:"",email:"",pwd:""});
-    
+    var nav = useNavigate();
     const handleChange=(e)=>
     {
             var {name,value}=e.target;
@@ -28,13 +28,19 @@ if(pwd!=cpwd)
             email:custObj.email,
             password:custObj.pwd
         }).then(result=>{
+
             console.log(result.data)
             alert("Sucessfull Register")
             navigate("/")
             
+
+         localStorage.custobject=result;
+          nav("/customerHome");
+        alert(result);
+
         }).catch(error=>{
             alert("Error in Registering")
-            console.log(error)
+            console.log(error);
         })
 
     }
@@ -45,7 +51,9 @@ if(pwd!=cpwd)
 	// private String email;
 	// private String password;
 
-    return (<div class="wrapper">
+    return (
+    <div >
+    <div class="wrapper">
         <div class="form-left">
             <h2 class="text-uppercase">information</h2>
             <p>
@@ -99,8 +107,10 @@ if(pwd!=cpwd)
                 <button onClick={handleApi}  class="register">Register</button>
             </div>
         </div>
+
     </div>
 
+    </div>
     )
 }
 export default CustomerRegister
