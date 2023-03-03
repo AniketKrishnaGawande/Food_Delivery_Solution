@@ -57,7 +57,7 @@ if(pwd!=cpwd)
         <div class="form-left">
             <h2 class="text-uppercase">information</h2>
             <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Et molestie ac feugiat sed. Diam volutpat commodo.
+                empor incididunt ut labore et dolore magna aliqua. Et molestie ac feugiat sed. Diam volutpat commodo.
             </p>
             <p class="text">
                 <span>Sub Head:</span>
