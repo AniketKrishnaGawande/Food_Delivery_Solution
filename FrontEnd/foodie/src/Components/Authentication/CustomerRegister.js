@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from "react-router-dom"
 import React from 'react'
 import axios from "axios";
-
+import "./Registration.css";
 const CustomerRegister = () => {
     const [custObj ,setObj] = useState({fname:"", lname:"",address:"",email:"",pwd:""});
     
@@ -43,29 +43,61 @@ if(pwd!=cpwd)
 	// private String email;
 	// private String password;
 
-    return (
-        <div>
-            
-            <label for='firstName'>FirstName : </label>
-            <br /><input value={custObj.fname} onChange={handleChange} type="text" name='fname' id='firstName' /><br />
-
-            <label for='lastName'>lastName : </label>
-            <br /><input value={custObj.lname} onChange={handleChange} type="text" name='lname' id='lastName' /><br />
-
-            <label for='address'>Address : </label>
-            <br /><input value={custObj.address} onChange={handleChange} type="text" name='address' id='address' /><br />
-
-            <label for='firsemailtName'>Email : </label>
-            <br /><input value={custObj.email} onChange={handleChange} type="email" name='email' id='email' /><br />
-
-            <label for='password'>Password : </label>
-            <br /><input value={custObj.pwd} onChange={handleChange} type="password" name='pwd' id='password' /><br />
-
-            <label for='password'>Confirm Password : </label>
-            <br /><input  onChange={handleChange} type="text" name='cpwd' id='cpassword' /><br />
-
-            <button onClick={handleApi}>Register</button>
+    return (<div class="wrapper">
+        <div class="form-left">
+            <h2 class="text-uppercase">information</h2>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Et molestie ac feugiat sed. Diam volutpat commodo.
+            </p>
+            <p class="text">
+                <span>Sub Head:</span>
+                Vitae auctor eu augudsf ut. Malesuada nunc vel risus commodo viverra. Praesent elementum facilisis leo vel.
+            </p>
+            <div class="form-field">
+                <a  href='/'>  <input type="button" class="account" value="Have an Account?"/></a> 
+            </div>
         </div>
+
+        <form class="form-right">
+            <h2 class="text-uppercase">Registration form</h2>
+            <div class="row">
+                <div class="col-sm-6 mb-3">
+                <label for="firstName">First Name</label>
+                    <input value={custObj.fname}  class="input-field"  onChange={handleChange} type="text" name='fname' id='firstName' />
+                  
+                
+                </div>
+                <div class="col-sm-6 mb-3">
+                    <label  for="lastName">Last Name</label>
+                    <input value={custObj.lname}  class="input-field" onChange={handleChange} type="text" name='lname' id='lastName' />
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for='address'>Address : </label>
+               <br /><input   class="input-field" value={custObj.address} onChange={handleChange} type="text" name='address' id='address' /><br />
+            </div>
+                <div class="mb-3">
+                    <label for='email'>Email : </label>
+                     <input value={custObj.email} onChange={handleChange} class="input-field" type="email" name='email' id='email' />
+                </div>
+
+
+            <div class="row">
+                <div class="col-sm-6 mb-3">
+                    <label for='password'>Password : </label>
+                  <input value={custObj.pwd} onChange={handleChange} type="password" name='pwd'  class="input-field" id='password' />
+
+                </div>
+                <div class="col-sm-6 mb-3">
+                    <label for='password'>Confirm Password : </label>
+                     <input  onChange={handleChange} type="text" name='cpwd' id='cpassword' class="input-field"/>
+                </div>
+            </div>
+            <div class="form-field">
+                <button onClick={handleApi}  class="register">Register</button>
+            </div>
+        </form>
+    </div>
 
     )
 }
