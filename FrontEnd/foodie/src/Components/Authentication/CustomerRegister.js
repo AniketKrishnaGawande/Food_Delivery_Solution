@@ -78,7 +78,7 @@ if(pwd!=cpwd)
                 <label for="firstName">First Name</label>
                     <input value={custObj.fname}  class="input-field"  onChange={handleChange} type="text" name='fname' id='firstName' required/>
                   
-                
+                <inpu></inpu>
                 </div>
                 <div class="col-sm-6 mb-3">
                     <label  for="lastName">Last Name</label>
