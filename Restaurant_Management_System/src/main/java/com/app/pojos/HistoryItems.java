@@ -15,6 +15,8 @@ import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -45,6 +47,7 @@ public class HistoryItems extends BaseEntity {
 	private List<HotelMenu> menuList = new ArrayList<HotelMenu>();
 
 	@OneToOne
+	@JsonIgnore
 	private DeliveryBoy deliveryBoy;
 
 

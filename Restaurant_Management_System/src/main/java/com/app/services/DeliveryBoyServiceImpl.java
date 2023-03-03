@@ -32,7 +32,7 @@ public class DeliveryBoyServiceImpl implements DeliveryBoyServiceif {
 	@Override
 	public DeliveryBoy assignOrder(HistoryItems item) {
 
-		DeliveryBoy dBoy = deliveryRepo.findByStatus(OrderStatus.NOT_ASSIGN).orElseThrow();
+		DeliveryBoy dBoy = deliveryRepo.findByStatusAndApprovedStatus(OrderStatus.NOT_ASSIGN,true).orElseThrow();
 		dBoy.setOrder(item);
 		dBoy.setStatus(OrderStatus.ASSIGNED);
 		return deliveryRepo.save(dBoy);
@@ -66,6 +66,12 @@ public class DeliveryBoyServiceImpl implements DeliveryBoyServiceif {
 		// TODO Auto-generated method stub
 		return deliveryRepo.findByEmailAndPassword(details.getEmail(), details.getPassword())
 				.orElseThrow(() -> new CustomException("Invalid Credentials"));
+	}
+
+	public void completeDeliveryStatus(DeliveryBoy dBoy) {
+
+		dBoy.setStatus(OrderStatus.NOT_ASSIGN);
+		deliveryRepo.save(dBoy);
 	}
 
 }

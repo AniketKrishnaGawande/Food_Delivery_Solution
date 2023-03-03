@@ -10,6 +10,7 @@ import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
@@ -27,35 +28,40 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString(exclude = "password")
-@JsonInclude(value =Include.NON_NULL )
-public class Hotelier extends BaseEntity{
+@JsonInclude(value = Include.NON_NULL)
+public class Hotelier extends BaseEntity {
 	@Column(length = 20)
 	private String hName;
-	
+
 	@Column(length = 100)
 
 	private String hAddress;
 
 	private int rating;
-	
-	private boolean status=false;
-	
+
+	private boolean status = false;
+
 	private String email;
-	
+	@JsonIgnore
 	private String password;
-		
+
 	@OneToMany(mappedBy = "hotel", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+	@JsonIgnore
 	private List<HotelMenu> menus = new ArrayList<>();
-	
-	//dto purpose
-	public Hotelier(String hName, String hAddress,String email, String password) {
-		
+
+	// dto purpose
+	public Hotelier(String hName, String hAddress, String email, String password) {
+
 		this.hName = hName;
 		this.hAddress = hAddress;
 		this.rating = 0;
-		this.status=false;
-		this.email=email;
-		this.password=password;
+		this.status = false;
+		this.email = email;
+		this.password = password;
+	}
+
+	public boolean getStatus() {
+		return this.status;
 	}
 
 	public void addMenu(HotelMenu hm) {
@@ -63,10 +69,9 @@ public class Hotelier extends BaseEntity{
 		hm.setHotel(this);
 	}
 
-	public void removeMenu(HotelMenu hm)
-	{
+	public void removeMenu(HotelMenu hm) {
 		menus.remove(hm);
 		hm.setHotel(null);
 	}
 
-	}
+}

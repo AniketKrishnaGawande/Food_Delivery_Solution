@@ -13,6 +13,6 @@ public interface DeliveryBoyRepository extends JpaRepository<DeliveryBoy,Long>{
 	//Optional method for Delivery Boy login
 	Optional<DeliveryBoy> findByEmailAndPassword(String email,String password);
 	
-	Optional<DeliveryBoy> findByStatus(OrderStatus status);
+	Optional<DeliveryBoy> findByStatusAndApprovedStatus(OrderStatus status, boolean approveStstus);
 	
 }

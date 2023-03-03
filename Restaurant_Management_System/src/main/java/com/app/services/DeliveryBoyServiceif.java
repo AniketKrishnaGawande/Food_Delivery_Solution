@@ -23,5 +23,6 @@ public interface DeliveryBoyServiceif {
 	public DeliveryBoy validateLogin(LoginDTO details)throws CustomException;
 	
 	public DeliveryBoy assignOrder(HistoryItems item);
+	public void completeDeliveryStatus(DeliveryBoy dBoy);
 
 }

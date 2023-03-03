@@ -33,8 +33,6 @@ public class DeliveryBoy extends User{
 	@JsonIgnore
 	private HistoryItems order;
 	
-	
-
 	public DeliveryBoy() {
 		super();
 	}

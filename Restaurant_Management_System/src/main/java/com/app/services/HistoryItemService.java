@@ -36,6 +36,7 @@ public class HistoryItemService {
 	public String changeDeliveryOrderStatus(Long orderId) {
 		HistoryItems item = histItemRepo.findById(orderId).orElseThrow();
 		item.setDeliveryStatus(DeliveryStatus.COMPLETED);
+		dBoyService.completeDeliveryStatus(item.getDeliveryBoy());
 		return "delivery status changed";
 	}
 

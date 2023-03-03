@@ -15,6 +15,7 @@ public interface HotelierServiceIf {
 	//To delete Hotel by id
 	public String deleteHotel(long id);
 	
+	public List<Hotelier> fetchApprovedHotels();
 	//To register Hotel
 	public String RegisterHotel(HotelierDTO hotel);
 	

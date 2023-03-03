@@ -12,12 +12,14 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
 @Entity
 //@NoArgsConstructor
 @Table(name = "Customers")
+@ToString
 public class Customer extends User {
 	@Column(length = 50)
 	private String address;
@@ -25,6 +27,7 @@ public class Customer extends User {
 	@JsonIgnore
 	private OrderHistory orderhistory;
 	@OneToOne(mappedBy = "customer", fetch = FetchType.LAZY, orphanRemoval = true, cascade = CascadeType.ALL)
+	@JsonIgnore
 	private FoodCart cart;
 
 	public void attachCart(FoodCart cart) {
@@ -44,12 +47,6 @@ public class Customer extends User {
 
 	public Customer() {
 
-	}
-
-	@Override
-	public String toString() {
-		return "Customer [" + super.toString() + "address=" + address + ", orderhistory=" + orderhistory + ", cart="
-				+ cart + "]";
 	}
 
 }

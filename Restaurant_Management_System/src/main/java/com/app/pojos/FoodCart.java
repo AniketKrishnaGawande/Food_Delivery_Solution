@@ -14,6 +14,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -32,6 +33,7 @@ public class FoodCart extends BaseEntity {
 	@OneToOne
 	@JoinColumn(name = "customer_id")
 	@JsonBackReference
+	@JsonIgnore
 	private Customer customer;
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<CartItem> cartItem = new ArrayList<CartItem>();

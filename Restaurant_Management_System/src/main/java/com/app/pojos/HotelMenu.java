@@ -11,6 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
@@ -39,19 +40,19 @@ public class HotelMenu extends BaseEntity {
 	private Menu menu;
 
 	@ManyToOne
-	@JoinColumn(name="hotelier_id")
+	@JoinColumn(name = "hotelier_id")
 	@JsonBackReference
+	@JsonIgnore
 	private Hotelier hotel;
-	
-	//for dto purpose
-	public HotelMenu(String mName,double mPrice,String mDesc,Menu menu)
-	{
-		
-		this.mName=mName;
-		this.mPrice=mPrice;
-		this.description=mDesc;
-		this.menu=menu;
-		
+
+	// for dto purpose
+	public HotelMenu(String mName, double mPrice, String mDesc, Menu menu) {
+
+		this.mName = mName;
+		this.mPrice = mPrice;
+		this.description = mDesc;
+		this.menu = menu;
+
 	}
 
 	// photo pending

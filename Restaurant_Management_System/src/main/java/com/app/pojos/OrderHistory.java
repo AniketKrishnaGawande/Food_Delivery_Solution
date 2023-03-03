@@ -16,6 +16,8 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -33,7 +35,10 @@ public class OrderHistory extends BaseEntity {
 
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "cust_Id")
+	@JsonIgnore
 	private Customer customer;
+	
+	
 	@OneToMany(fetch = FetchType.LAZY)
 	private List<HistoryItems> historyItems = new ArrayList<HistoryItems>();
 

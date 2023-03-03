@@ -19,6 +19,15 @@ public class HotelierServiceImpl implements HotelierServiceIf {
 
 	@Autowired
 	private HotelierRepository hotelRepo;
+	
+	
+	public List<Hotelier> fetchApprovedHotels(){
+		List<Hotelier> hotelList = hotelRepo.findByStatus(true);
+		System.out.println("service after");
+		hotelList.get(0).getMenus().size();
+		return hotelList;		
+		
+	}
 
 	// To fetch All Hotel Details
 	@Override

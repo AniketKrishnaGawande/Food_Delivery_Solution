@@ -25,6 +25,11 @@ public class HotelierController {
 	@Autowired
 	private HotelierServiceIf hotelService;
 
+	@GetMapping("/approvedHotels")
+	public List<Hotelier> getApprovedHotels() {
+		return hotelService.fetchApprovedHotels();
+	}
+
 	@GetMapping("/getHotelDetails")
 	public List<Hotelier> getAllHotels() {
 
@@ -34,34 +39,25 @@ public class HotelierController {
 		System.out.println(list);
 		return list;
 	}
-	
+
 	@PostMapping("/RegisterHotel")
-	public String addHotels(@RequestBody HotelierDTO hotel)
-	{
+	public String addHotels(@RequestBody HotelierDTO hotel) {
 		return hotelService.RegisterHotel(hotel);
 	}
-	
+
 	@GetMapping("/deleteHotel/{id}")
-	public String deleteHotelById(@PathVariable Long id)
-	{
+	public String deleteHotelById(@PathVariable Long id) {
 		return hotelService.deleteHotel(id);
 	}
-	
+
 	@GetMapping("/approvedHotel/{id}")
-	public String approveHotel(@PathVariable Long id)
-	{
+	public String approveHotel(@PathVariable Long id) {
 		return hotelService.approveHotel(id);
 	}
-	
+
 	@PostMapping("/hotelierLogin")
-	public Hotelier validateLogin(@RequestBody LoginDTO login) throws CustomException
-	{
+	public Hotelier validateLogin(@RequestBody LoginDTO login) throws CustomException {
 		return hotelService.hotelLogin(login);
 	}
-	
-	
-	
-	
-	
 
 }
