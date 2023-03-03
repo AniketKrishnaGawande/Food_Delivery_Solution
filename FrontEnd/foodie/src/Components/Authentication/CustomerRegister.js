@@ -4,6 +4,7 @@ import React from 'react'
 import axios from "axios";
 import "./Registration.css";
 const CustomerRegister = () => {
+    var navigate=useNavigate()
     const [custObj ,setObj] = useState({fname:"", lname:"",address:"",email:"",pwd:""});
     
     const handleChange=(e)=>
@@ -13,7 +14,6 @@ const CustomerRegister = () => {
     }    
     const handleApi=()=>
     {
-
 var pwd = document.querySelector("#password").value;
 var cpwd = document.querySelector("#cpassword").value;
 if(pwd!=cpwd)
@@ -30,6 +30,8 @@ if(pwd!=cpwd)
         }).then(result=>{
             console.log(result.data)
             alert("Sucessfull Register")
+            navigate("/")
+            
         }).catch(error=>{
             alert("Error in Registering")
             console.log(error)
@@ -58,7 +60,7 @@ if(pwd!=cpwd)
             </div>
         </div>
 
-        <form class="form-right">
+        <div class="form-right">
             <h2 class="text-uppercase">Registration form</h2>
             <div class="row">
                 <div class="col-sm-6 mb-3">
@@ -96,7 +98,7 @@ if(pwd!=cpwd)
             <div class="form-field">
                 <button onClick={handleApi}  class="register">Register</button>
             </div>
-        </form>
+        </div>
     </div>
 
     )
