@@ -2,14 +2,16 @@ import { useState } from 'react';
 import { useNavigate } from "react-router-dom"
 import React from 'react'
 import axios from "axios";
-
 const HotelierRegister = () => {
     const [fname, setFname] = useState('');
     const [address, setAddresse] = useState('');
     const [email, setEmail] = useState('');
     const [pwd, setPwd] = useState('');
-
+    
+    const [hotObj ,setObj] = useState({hname:"", haddress:"",email:"",password:""});
     const handleFname=(e)=>
+
+    
     {
         setFname(e.target.value)
     }
@@ -29,10 +31,15 @@ const HotelierRegister = () => {
 
     const handleApi=()=>
     {
+        if(hotObj.email=="" || hotObj.hname==""|| hotObj.haddress=="" || hotObj.password=="" )
+        {
+            alert("Enter data")
+            return;
+        }
         axios.post('http://localhost:8080/hotels/RegisterHotel',{
 
-            hName:fname,
-            hAddress:address,
+        hname:fname,
+        haddress:address,
             email:email,
             password:pwd
         }).then(result=>{
@@ -46,13 +53,13 @@ const HotelierRegister = () => {
     }
 
     return (
-        <div>
+        <div class="form-right">
             
             <label for='firstName'>Hotel Name : </label>
-            <br /><input value={fname} onChange={handleFname} type="text" name='firstName' id='firstName' /><br />
+            <br /><input value={fname} onChange={handleFname} type="text" name='hname' id='firstName' /><br />
 
             <label for='address'>Address : </label>
-            <br /><input value={address} onChange={handleAddress} type="text" name='address' id='address' /><br />
+            <br /><input value={address} onChange={handleAddress} type="text" name='haddress' id='address' /><br />
 
             <label for='email'>Email : </label>
             <br /><input value={email} onChange={handleEmail} type="text" name='email' id='email' /><br />

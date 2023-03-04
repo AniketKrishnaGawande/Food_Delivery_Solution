@@ -22,6 +22,9 @@ public interface DeliveryBoyServiceif {
 	//Login Delivery Boy
 	public DeliveryBoy validateLogin(LoginDTO details)throws CustomException;
 	
+	//Approve non assign status
+	public String approveStatus(long id);
+	
 	public DeliveryBoy assignOrder(HistoryItems item);
 	public void completeDeliveryStatus(DeliveryBoy dBoy);
 

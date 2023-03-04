@@ -36,6 +36,7 @@ public class OrderProcessingController {
 		return hist;
 	}
 
+	//hotelier component fun
 	@GetMapping("/historyForHotel/{hotelId}")
 	public List<OrderHistory> getHistoryByHotelId(@PathVariable long hotelId) {
 		return orderService.getOrderHistoryByHotelId(hotelId);

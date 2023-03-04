@@ -4,6 +4,7 @@ import React from 'react'
 import axios from "axios";
 
 const DeliveryBoyRegister = () => {
+    const [delObj ,setObj] = useState({firstName:"", lastName:"",email:"",password:""});
     const [fname, setFname] = useState('');
     const [lname, setLname] = useState('');
     const [email, setEmail] = useState('');
@@ -28,6 +29,11 @@ const DeliveryBoyRegister = () => {
 
     const handleApi=()=>
     {
+        if(delObj.email=="" || delObj.firstName==""|| delObj.lastName=="" || delObj.password=="" )
+        {
+            alert("Enter data")
+            return;
+        }
         axios.post('http://localhost:8080/deliveryBoy/registerDeliveryBoy',{
             firstName:fname,
             lastName:lname,
@@ -47,16 +53,16 @@ const DeliveryBoyRegister = () => {
         <div>
             
             <label for='firstName'>FirstName : </label>
-            <br /><input value={fname} onChange={handleFname} type="text" name='firstName' id='firstName' /><br />
+            <br /><input value={fname} onChange={handleFname} type="text" name='firstName' id='firstName' required/><br />
 
             <label for='lastName'>lastName : </label>
-            <br /><input value={lname} onChange={handleLname} type="text" name='lastName' id='lastName' /><br />
+            <br /><input value={lname} onChange={handleLname} type="text" name='lastName' id='lastName'required /><br />
 
             <label for='email'>Email : </label>
-            <br /><input value={email} onChange={handleEmail} type="text" name='email' id='email' /><br />
+            <br /><input value={email} onChange={handleEmail} type="text" name='email' id='email' required/><br />
 
             <label for='password'>Password : </label>
-            <br /><input value={pwd} onChange={handlePwd} type="text" name='password' id='password' /><br />
+            <br /><input value={pwd} onChange={handlePwd} type="text" name='password' id='password' required/><br />
 
             <button onClick={handleApi}>Register</button>
         </div>

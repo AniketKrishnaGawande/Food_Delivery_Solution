@@ -27,7 +27,7 @@ public class DeliveryBoy extends User{
 	@Enumerated(EnumType.STRING)
 	private OrderStatus status=OrderStatus.NOT_ASSIGN;
 	
-	private boolean approvedStatus=false;
+	private DeliveryBoyAcceptStatus approvedStatus=DeliveryBoyAcceptStatus.NOT_APPROVED;
 	
 	@OneToOne
 	@JsonIgnore
@@ -43,21 +43,9 @@ public class DeliveryBoy extends User{
 		this.setEmail(Email);
 		this.setPassword(passwd);
 		status=OrderStatus.NOT_ASSIGN;
+		approvedStatus=DeliveryBoyAcceptStatus.NOT_APPROVED;
 		order=null;
 	}
 	
-	
-	
-	//hotelier
-	//add -->register
-	//login hotelier
-	
-	//del boy
-	//login
-	//register --> add --> status (boolean)
-	//delete admin apprved
-	
-	//admin login
-	//register
 
 }

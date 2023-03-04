@@ -39,7 +39,7 @@ public class Hotelier extends BaseEntity {
 
 	private int rating;
 
-	private boolean status = false;
+	private HotelStatus status = HotelStatus.NOT_APPROVED;
 
 	private String email;
 	@JsonIgnore
@@ -55,12 +55,12 @@ public class Hotelier extends BaseEntity {
 		this.hName = hName;
 		this.hAddress = hAddress;
 		this.rating = 0;
-		this.status = false;
+		this.status = HotelStatus.NOT_APPROVED;
 		this.email = email;
 		this.password = password;
 	}
 
-	public boolean getStatus() {
+	public HotelStatus getStatus() {
 		return this.status;
 	}
 

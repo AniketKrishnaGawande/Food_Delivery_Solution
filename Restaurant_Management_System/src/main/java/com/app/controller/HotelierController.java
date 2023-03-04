@@ -4,11 +4,14 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.app.dto.HotelierDTO;
@@ -42,15 +45,22 @@ public class HotelierController {
 
 	@PostMapping("/RegisterHotel")
 	public String addHotels(@RequestBody HotelierDTO hotel) {
+		System.out.println("In method Hotelier controller "+hotel);
 		return hotelService.RegisterHotel(hotel);
 	}
 
-	@GetMapping("/deleteHotel/{id}")
+	
+	@DeleteMapping("/deleteHotel/{id}")
 	public String deleteHotelById(@PathVariable Long id) {
 		return hotelService.deleteHotel(id);
 	}
+//	@GetMapping("/deleteHotel")
+//	public String deleteHotelById(@RequestParam Long id) {
+//		System.out.println(id);
+//		return hotelService.deleteHotel(id);
+//	}
 
-	@GetMapping("/approvedHotel/{id}")
+	@PutMapping("/approvedHotel/{id}")
 	public String approveHotel(@PathVariable Long id) {
 		return hotelService.approveHotel(id);
 	}
