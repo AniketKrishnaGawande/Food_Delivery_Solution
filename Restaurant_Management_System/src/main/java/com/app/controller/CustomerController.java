@@ -2,6 +2,7 @@ package com.app.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,11 +27,19 @@ public class CustomerController {
 		return custService.validateLogin(logindtls);
 	}
 
-	@PostMapping("/customerRegister")
-	public Customer registerCustomer(@RequestBody CustomerRegistrationDTO cust) {
-		return custService.registerCust(new Customer(cust.getAddress(), cust.getFirstName(), cust.getLastName(),
-				cust.getPassword(), cust.getEmail()));
+//	@PostMapping("/customerRegister")
+//	public Customer registerCustomer(@RequestBody CustomerRegistrationDTO cust) {
+//		return custService.registerCust(new Customer(cust.getAddress(), cust.getFirstName(), cust.getLastName(),
+//				cust.getPassword(), cust.getEmail()));
+//
+//	}
+	
+	@PostMapping("/customerRegister/{id}/{id2}")
+	public int registerCustomer(@PathVariable int id,@PathVariable int id2) {
+		return id;
 
 	}
+	
+	
 
 }

@@ -31,7 +31,6 @@ public class DeliveryBoyController {
 	public List<DeliveryBoy> getAllDeliveryBoys() {
 
 		List<DeliveryBoy> list = deliveryService.getAllDeliveryBoy();
-		
 		return list;
 	}
 	
