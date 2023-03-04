@@ -27,18 +27,13 @@ public class CustomerController {
 		return custService.validateLogin(logindtls);
 	}
 
-//	@PostMapping("/customerRegister")
-//	public Customer registerCustomer(@RequestBody CustomerRegistrationDTO cust) {
-//		return custService.registerCust(new Customer(cust.getAddress(), cust.getFirstName(), cust.getLastName(),
-//				cust.getPassword(), cust.getEmail()));
-//
-//	}
-	
-	@PostMapping("/customerRegister/{id}/{id2}")
-	public int registerCustomer(@PathVariable int id,@PathVariable int id2) {
-		return id;
+	@PostMapping("/customerRegister")
+	public Customer registerCustomer(@RequestBody CustomerRegistrationDTO cust) {
+		return custService.registerCust(new Customer(cust.getAddress(), cust.getFirstName(), cust.getLastName(),
+				cust.getPassword(), cust.getEmail()));
 
 	}
+	
 	
 	
 
