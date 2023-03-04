@@ -11,17 +11,16 @@ import org.springframework.web.bind.annotation.RestController;
 import com.app.pojos.FoodCart;
 import com.app.services.FoodCartService;
 
-@RestController
-@CrossOrigin(origins = "http://localhost:3000")
-@RequestMapping("/foodCart")
 
+@RestController
+@CrossOrigin(origins = "http://localhost:3000",allowedHeaders = "*")
+@RequestMapping("/foodCart")
 public class FoodCartController {
 	@Autowired
 	private FoodCartService foodService;
 
-	@PostMapping("/add/{custid}/{menuId}")
+@PostMapping("/add/{custid}/{menuId}")
 	public FoodCart addItemToCart(@PathVariable long custid, @PathVariable long menuId) {
-
 		return foodService.addToCart(custid, menuId);
 	}
 
@@ -30,5 +29,4 @@ public class FoodCartController {
 
 		return foodService.getCartByCustId(custId);
 	}
-
 }

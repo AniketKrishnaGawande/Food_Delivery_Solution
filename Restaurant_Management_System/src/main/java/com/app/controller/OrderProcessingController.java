@@ -23,10 +23,8 @@ public class OrderProcessingController {
 
 	@PostMapping("/placedOrder/{custId}")
 	public String acceptOrder(@PathVariable long custId) {
-
 		orderService.placeOrder(custId);
 		return "history added";
-
 	}
 
 	@GetMapping("getAllOrders/{Custid}")

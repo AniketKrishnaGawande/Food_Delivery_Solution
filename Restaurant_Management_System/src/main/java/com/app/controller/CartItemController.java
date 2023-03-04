@@ -21,8 +21,4 @@ public class CartItemController {
 	public String deleteCartItem(@PathVariable long custId, @PathVariable long cartItemId) {
 		return itemService.deleteItem(custId, cartItemId);
 	}
-	
-	
-	
-
 }

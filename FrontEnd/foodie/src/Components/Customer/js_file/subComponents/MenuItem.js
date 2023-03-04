@@ -2,18 +2,14 @@ import axios from "axios";
 import React from "react";
 
 function MenuItem(props){
-
-
-
+ 
 const addToCart=(menuId)=>{
-
 var custId=JSON.parse(localStorage.customer).id;
-axios.post(`http://localhost:8080/foodCard/add/${custId}/${menuId}`).then((result)=>{
+axios.post(`http://localhost:8080/foodCart/add/${custId}/${menuId}`).then((result)=>{
     alert("added")
 }).catch((err)=>{
     alert("not added")
 })
-
 }
 
 return(
@@ -25,8 +21,6 @@ return(
   <div class="row">
   
     <div class="col-sm-6 ">
-
-
   <div class="card-body">
     <h4 class="card-title">Dish ::{props.menuItem.mname}</h4>
     <p class="card-text"> Description ::{props.menuItem.description}</p>
