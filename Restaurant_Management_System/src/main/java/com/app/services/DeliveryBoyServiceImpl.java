@@ -33,10 +33,10 @@ public class DeliveryBoyServiceImpl implements DeliveryBoyServiceif {
 	@Override
 	public DeliveryBoy assignOrder(HistoryItems item) {
 
-		DeliveryBoy dBoy = deliveryRepo.findByStatusAndApprovedStatus(OrderStatus.NOT_ASSIGN,false).orElseThrow();
-		dBoy.setOrder(item);
-		dBoy.setStatus(OrderStatus.ASSIGNED);
-		return deliveryRepo.save(dBoy);
+		List<DeliveryBoy> dBoyList = deliveryRepo.findByStatusAndApprovedStatus(OrderStatus.NOT_ASSIGN, DeliveryBoyAcceptStatus.APPROVED);
+		dBoyList.get(0).setOrder(item);
+		dBoyList.get(0).setStatus(OrderStatus.ASSIGNED);
+		return deliveryRepo.save(dBoyList.get(0));
 	}
 
 	// Register Delivery Boy

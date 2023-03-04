@@ -6,7 +6,7 @@ function MenuItem(props){
 const addToCart=(menuId)=>{
 var custId=JSON.parse(localStorage.customer).id;
 axios.post(`http://localhost:8080/foodCart/add/${custId}/${menuId}`).then((result)=>{
-    alert("added")
+    alert("added to cart")
 }).catch((err)=>{
     alert("not added")
 })

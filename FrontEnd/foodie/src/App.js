@@ -7,16 +7,27 @@ import CustomerRegister from './Components/Authentication/CustomerRegister';
 import DeliveryBoyRegister from './Components/Authentication/DeliveryBoyRegister';
 import HotelierRegister from './Components/Authentication/HotelierRegistration';
 import Dummy from './Components/Admin/Dummy';
-<<<<<<< HEAD
-import CustomerHome from "./Components/Customer/js_file/Home";
 import Home from "./Components/Admin/Home";
 import Hotelier from "./Components/Admin/Hotelier";
 import DeliveryBoy from "./Components/Admin/DeliveryBoy";
-=======
+
 import CustomerHome from "./Components/Customer/js_file/CustomerHome";
 import Menu from "./Components/Customer/js_file/Menu";
+import CustomerCart from "./Components/Customer/js_file/CustomerCart";
+import CustomerHistory from "./Components/Customer/js_file/CustomerHistory";
 
->>>>>>> d35de0dc9c7db470c0ed3057f416ce74f061a39b
+
+
+
+
+
+
+
+
+
+
+
+
 function App() {
   return(
     <div className="App">
@@ -34,16 +45,20 @@ function App() {
       <Route exact path="/DeliveryBoyregister" element={<DeliveryBoyRegister/>}/>
       <Route exact path="/Hotelierregister" element={<HotelierRegister/>}/>
       <Route exact path="/dummy" element={<Dummy></Dummy>}/>
-<<<<<<< HEAD
       <Route exact path="/customer/home" element={<CustomerHome></CustomerHome>}/>
       <Route exact path='/admin/home/hotelier' element={<Hotelier/>}/>
       <Route exact path='/admin/home/deliveryBoy' element={<DeliveryBoy/>}/>
       
       
-=======
       <Route path="/customer"  element={<CustomerHome></CustomerHome>}/>
       <Route path="/customer/menu" element={<Menu></Menu>} ></Route>
->>>>>>> d35de0dc9c7db470c0ed3057f416ce74f061a39b
+      <Route path="/customer/cart" element={<CustomerCart></CustomerCart>} ></Route>
+      <Route path="/customer/history" element={<CustomerHistory></CustomerHistory>} ></Route>
+
+
+
+
+      
       </Routes>
     </div>
   );

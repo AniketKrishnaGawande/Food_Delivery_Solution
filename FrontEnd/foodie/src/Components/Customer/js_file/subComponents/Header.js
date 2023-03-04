@@ -14,7 +14,10 @@ return(
         <a class="nav-link" href="/customer/menu">Menu</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/">Link</a>
+        <a class="nav-link" href="/customer/cart">Cart</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/customer/history">history</a>
       </li>
     </ul>
     </div>

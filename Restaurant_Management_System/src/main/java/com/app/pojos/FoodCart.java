@@ -32,7 +32,6 @@ public class FoodCart extends BaseEntity {
 	private double cartTotalPrice;
 	@OneToOne
 	@JoinColumn(name = "customer_id")
-	@JsonBackReference
 	@JsonIgnore
 	private Customer customer;
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)

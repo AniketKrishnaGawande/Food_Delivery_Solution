@@ -26,7 +26,7 @@ public class DeliveryBoy extends User{
 	
 	@Enumerated(EnumType.STRING)
 	private OrderStatus status=OrderStatus.NOT_ASSIGN;
-	
+	@Enumerated(EnumType.STRING)
 	private DeliveryBoyAcceptStatus approvedStatus=DeliveryBoyAcceptStatus.NOT_APPROVED;
 	
 	@OneToOne

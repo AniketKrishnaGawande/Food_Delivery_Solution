@@ -19,7 +19,7 @@ const menuList=()=>menuArray.map((menu, index)=>{return <MenuItem menuItem={menu
 
 return(<div>
 <Header></Header>
-
+<h3 style={{"text-align":"center"}} > Hotel Menu</h3>
     {menuList()}
 </div>);
 
