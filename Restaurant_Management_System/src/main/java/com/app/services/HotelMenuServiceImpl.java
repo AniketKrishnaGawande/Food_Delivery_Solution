@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.app.dto.HotelMenuAddDto;
 import com.app.pojos.HotelMenu;
+import com.app.pojos.HotelStatus;
 import com.app.pojos.Hotelier;
 import com.app.repositories.HotelierMenuRepository;
 import com.app.repositories.HotelierRepository;
@@ -40,7 +41,7 @@ public class HotelMenuServiceImpl implements HotelMenuServiceif {
 			HotelMenu hMenu = new HotelMenu(menu.getMName(), menu.getMPrice(), menu.getDescription(), menu.getMenu());
 //			Hotelier hotel= hotelRepo.getById(menu.getId());
 			Hotelier hotel = hotelRepo.findById(id).orElseThrow();
-			if (hotel.getStatus() == true) {
+			if (hotel.getStatus() == HotelStatus.APPROVED) {
 				hotel.addMenu(hMenu);
 				hotelMenuRepo.save(hMenu);
 

@@ -11,6 +11,7 @@ import com.app.dto.DBoyRegisterDTO;
 import com.app.dto.LoginDTO;
 import com.app.exception.CustomException;
 import com.app.pojos.DeliveryBoy;
+import com.app.pojos.DeliveryBoyAcceptStatus;
 import com.app.pojos.HistoryItems;
 import com.app.pojos.OrderStatus;
 import com.app.repositories.DeliveryBoyRepository;
@@ -72,6 +73,16 @@ public class DeliveryBoyServiceImpl implements DeliveryBoyServiceif {
 
 		dBoy.setStatus(OrderStatus.NOT_ASSIGN);
 		deliveryRepo.save(dBoy);
+	}
+
+	@Override
+	public String approveStatus(long id) {
+		if(deliveryRepo.existsById(id))
+		{
+			deliveryRepo.findById(id).orElseThrow().setApprovedStatus(DeliveryBoyAcceptStatus.APPROVED);
+			return "Approved";
+		}
+		return "Enter valid Delivery Boy Id";
 	}
 
 }

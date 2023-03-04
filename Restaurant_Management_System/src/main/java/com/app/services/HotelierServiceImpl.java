@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.app.dto.HotelierDTO;
 import com.app.dto.LoginDTO;
 import com.app.exception.CustomException;
+import com.app.pojos.HotelStatus;
 import com.app.pojos.Hotelier;
 import com.app.repositories.HotelierRepository;
 
@@ -55,9 +56,11 @@ public class HotelierServiceImpl implements HotelierServiceIf {
 	@Override
 	public String RegisterHotel(HotelierDTO hotels) {
 		if (hotels != null) {
+			System.out.println("In Hotelier service impl Dto obj"+hotels);
 			Hotelier hotel = new Hotelier(hotels.getHName(), hotels.getHAddress(), hotels.getEmail(),
 					hotels.getPassword());
-			hotel.setStatus(false);
+			hotel.setStatus(HotelStatus.NOT_APPROVED);
+			System.out.println("In Hotelier service impl after saving status obj"+hotel);
 			hotelRepo.save(hotel);
 			return "Hotel added successful";
 		}
@@ -69,7 +72,7 @@ public class HotelierServiceImpl implements HotelierServiceIf {
 	@Override
 	public String approveHotel(long id) {
 		if (hotelRepo.existsById(id)) {
-			hotelRepo.findById(id).orElseThrow().setStatus(true);
+			hotelRepo.findById(id).orElseThrow().setStatus(HotelStatus.APPROVED);
 			return "Approved";
 		}
 		return "Enter valid Hotel Id";

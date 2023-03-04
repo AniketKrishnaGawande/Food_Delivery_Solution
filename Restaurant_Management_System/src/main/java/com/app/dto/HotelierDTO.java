@@ -1,6 +1,6 @@
 package com.app.dto;
 
-import lombok.AllArgsConstructor;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -10,9 +10,7 @@ import lombok.ToString;
 @Setter
 @ToString
 @NoArgsConstructor
-@AllArgsConstructor
 public class HotelierDTO {
-	
 	
 	private String hName;
 	
@@ -21,8 +19,16 @@ public class HotelierDTO {
 	private String email;
 	
 	private String password;
+	
 
-	
-	
+	public HotelierDTO(String hName, String hAddress, String email, String password) {
+		super();
+		System.out.println("In Hotelier DTO --------"+hName);
+		this.hName = hName;
+		this.hAddress = hAddress;
+		this.email = email;
+		this.password = password;
+	}
+
 
 }

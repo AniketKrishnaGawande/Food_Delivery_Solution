@@ -35,7 +35,7 @@ const Login=()=>
             console.log(result.data)
             // alert("success")
             localStorage.setItem("admin",JSON.stringify(result.data))
-            navigate("/home")//dummy component
+            navigate("/admin/home")//dummy component
             
         }).catch(error=>{
             alert("Invalid credentials")
@@ -101,10 +101,10 @@ const Login=()=>
         <div className='div2'> 
 
             <label htmlFor='email' className='spacing'>Email : </label>
-            <input value={email} onChange={handleEmail} type="email" id='email'/>
+            <input value={email} onChange={handleEmail} type="email" id='email' required/>
 
             <label htmlFor='password' className='spacing'>Password : </label>
-            <input value={pwd} onChange={handlePwd} type="password" id='password'/>
+            <input value={pwd} onChange={handlePwd} type="password" id='password' required />
 
                 <select id='users'>
                 <option value="Admin">Admin</option>
@@ -113,13 +113,13 @@ const Login=()=>
                 <option value="DeliveryBoy">DeliveryBoy</option>
             </select>
 
-            <button onClick={handleApi}>Login</button>
+            <button onClick={handleApi} class="btn btn-success">Login</button>
 
-            <a href='/Customerregister' className='link'>Customer Registration</a>
+            <a href='/Customerregister' className='link' class="link-dark">Customer Registration</a>
 
-            <a href='/Hotelierregister' className='link'>Hotelier Registration</a>
+            <a href='/Hotelierregister' className='link' class="link-dark">Hotelier Registration</a>
         
-            <a href='/DeliveryBoyregister' className='link'>Delivery Boy Registration</a>
+            <a href='/DeliveryBoyregister' className='link' class="link-dark">Delivery Boy Registration</a>
             </div>
         </div>
         
