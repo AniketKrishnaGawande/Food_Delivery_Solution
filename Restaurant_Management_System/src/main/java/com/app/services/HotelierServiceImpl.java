@@ -20,14 +20,18 @@ public class HotelierServiceImpl implements HotelierServiceIf {
 
 	@Autowired
 	private HotelierRepository hotelRepo;
-	
-	
-	public List<Hotelier> fetchApprovedHotels(){
+
+	@Override
+	public Hotelier getHotelByHId(long hId) {
+		return hotelRepo.findById(hId).orElseThrow();
+	}
+
+	public List<Hotelier> fetchApprovedHotels() {
 		List<Hotelier> hotelList = hotelRepo.findByStatus(true);
 		System.out.println("service after");
 		hotelList.get(0).getMenus().size();
-		return hotelList;		
-		
+		return hotelList;
+
 	}
 
 	// To fetch All Hotel Details
@@ -56,11 +60,11 @@ public class HotelierServiceImpl implements HotelierServiceIf {
 	@Override
 	public String RegisterHotel(HotelierDTO hotels) {
 		if (hotels != null) {
-			System.out.println("In Hotelier service impl Dto obj"+hotels);
+			System.out.println("In Hotelier service impl Dto obj" + hotels);
 			Hotelier hotel = new Hotelier(hotels.getHName(), hotels.getHAddress(), hotels.getEmail(),
 					hotels.getPassword());
 			hotel.setStatus(HotelStatus.NOT_APPROVED);
-			System.out.println("In Hotelier service impl after saving status obj"+hotel);
+			System.out.println("In Hotelier service impl after saving status obj" + hotel);
 			hotelRepo.save(hotel);
 			return "Hotel added successful";
 		}

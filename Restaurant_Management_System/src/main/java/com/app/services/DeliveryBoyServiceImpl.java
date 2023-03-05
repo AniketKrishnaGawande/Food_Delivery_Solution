@@ -31,9 +31,15 @@ public class DeliveryBoyServiceImpl implements DeliveryBoyServiceif {
 	}
 
 	@Override
+	public DeliveryBoy getDBoyById(long dId) {
+		return deliveryRepo.findById(dId).orElseThrow();
+	}
+
+	@Override
 	public DeliveryBoy assignOrder(HistoryItems item) {
 
-		List<DeliveryBoy> dBoyList = deliveryRepo.findByStatusAndApprovedStatus(OrderStatus.NOT_ASSIGN, DeliveryBoyAcceptStatus.APPROVED);
+		List<DeliveryBoy> dBoyList = deliveryRepo.findByStatusAndApprovedStatus(OrderStatus.NOT_ASSIGN,
+				DeliveryBoyAcceptStatus.APPROVED);
 		dBoyList.get(0).setOrder(item);
 		dBoyList.get(0).setStatus(OrderStatus.ASSIGNED);
 		return deliveryRepo.save(dBoyList.get(0));
@@ -77,8 +83,7 @@ public class DeliveryBoyServiceImpl implements DeliveryBoyServiceif {
 
 	@Override
 	public String approveStatus(long id) {
-		if(deliveryRepo.existsById(id))
-		{
+		if (deliveryRepo.existsById(id)) {
 			deliveryRepo.findById(id).orElseThrow().setApprovedStatus(DeliveryBoyAcceptStatus.APPROVED);
 			return "Approved";
 		}

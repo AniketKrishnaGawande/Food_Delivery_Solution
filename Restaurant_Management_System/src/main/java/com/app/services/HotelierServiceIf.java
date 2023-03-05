@@ -24,5 +24,7 @@ public interface HotelierServiceIf {
 	
 	//To Login hotel
 	public Hotelier hotelLogin(LoginDTO details)throws CustomException;
+	
+	public Hotelier getHotelByHId(long hId);
 
 }

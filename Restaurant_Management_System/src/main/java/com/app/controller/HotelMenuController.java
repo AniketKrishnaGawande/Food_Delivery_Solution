@@ -13,34 +13,35 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.app.dto.HotelMenuAddDto;
 import com.app.pojos.HotelMenu;
+import com.app.pojos.Hotelier;
 import com.app.services.HotelMenuServiceif;
 
-
-
-
 @RestController
-@CrossOrigin( origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/hotelMenu")
 public class HotelMenuController {
-	
+
 	@Autowired
 	private HotelMenuServiceif hotelMenuService;
-	
+
 	@GetMapping("/getAllHotelMenus")
 	public List<HotelMenu> getAllHotelMenus() {
 
 		return hotelMenuService.fetchAllMenus();
 	}
-	
+
+	@GetMapping("/getMenuByHotelId/{hotelId}")
+	public List<HotelMenu> fetchMenuByHotelId(@PathVariable long hotelId) {
+		return hotelMenuService.fetchMenuByHotelId(hotelId);
+	}
+
 	@PostMapping("/addHotelMenus/{id}")
-	public String addMenu(@RequestBody HotelMenuAddDto menu,@PathVariable Long id)
-	{
+	public String addMenu(@RequestBody HotelMenuAddDto menu, @PathVariable Long id) {
 		return hotelMenuService.addMenu(menu, id);
 	}
-	
+
 	@GetMapping("/deleteHotelMenus/{id}")
-	public String deleteMenu(@PathVariable Long id)
-	{
+	public String deleteMenu(@PathVariable Long id) {
 		return hotelMenuService.removeMenu(id);
 	}
 

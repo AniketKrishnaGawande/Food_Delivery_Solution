@@ -18,5 +18,7 @@ public interface HotelMenuServiceif {
 	
 	//Get Menu's By Id
 	public HotelMenu getMenuById(long id);
+	
+	public List<HotelMenu> fetchMenuByHotelId(long hId);
 
 }

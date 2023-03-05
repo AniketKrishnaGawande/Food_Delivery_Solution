@@ -25,12 +25,21 @@ public class HotelMenuServiceImpl implements HotelMenuServiceif {
 	@Autowired
 	private HotelierRepository hotelRepo;
 
+	@Autowired
+	private HotelierServiceIf hService;
+
 	// To fetch All Hotel Menus
 	@Override
 	public List<HotelMenu> fetchAllMenus() {
 		List<HotelMenu> menuList = hotelMenuRepo.findAll();
 		menuList.get(0).getHotel().getHName();
 		return menuList;
+	}
+
+	public List<HotelMenu> fetchMenuByHotelId(long hId) {
+		Hotelier hotel = hService.getHotelByHId(hId);
+		return hotelMenuRepo.findByHotel(hotel);
+
 	}
 
 	// To Add menu in Hotel

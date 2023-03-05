@@ -31,6 +31,17 @@ public class HistoryItemService {
 		historyItem.setDeliveryBoy(dBoy);
 		return histItemRepo.save(historyItem);
 	}
+	
+	
+	public List<HistoryItems> getItemByDBoy(long dId){
+		DeliveryBoy dBoy = dBoyService.getDBoyById(dId);
+		
+		return histItemRepo.findByDeliveryBoy(dBoy);
+		
+	}
+	
+	
+	
 
 	// change status by delivery boy
 	public String changeDeliveryOrderStatus(Long orderId) {

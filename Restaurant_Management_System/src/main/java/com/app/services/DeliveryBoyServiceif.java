@@ -27,5 +27,6 @@ public interface DeliveryBoyServiceif {
 	
 	public DeliveryBoy assignOrder(HistoryItems item);
 	public void completeDeliveryStatus(DeliveryBoy dBoy);
+	public DeliveryBoy getDBoyById(long dId);
 
 }
