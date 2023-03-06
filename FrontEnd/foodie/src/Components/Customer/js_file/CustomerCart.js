@@ -42,11 +42,7 @@ var nav=useNavigate();
 useEffect(()=>{
 var id = JSON.parse(localStorage.customer).id;
 axios.get(`http://localhost:8080/foodCart/${id}`).then((result)=>{
-<<<<<<< HEAD
 localStorage.cart= JSON.stringify (result.data);
-
-=======
->>>>>>> b9abcbe761ee1678eca3bfa1dcd323206c41bc42
 var obj1=result.data;
 
 setObj({...obj1});
