@@ -15,7 +15,7 @@ import CustomerHome from "./Components/Customer/js_file/CustomerHome";
 import Menu from "./Components/Customer/js_file/Menu";
 import CustomerCart from "./Components/Customer/js_file/CustomerCart";
 import CustomerHistory from "./Components/Customer/js_file/CustomerHistory";
-
+import CustomerProfile from "./Components/Customer/js_file/CustomerProfile";
 
 
 
@@ -54,8 +54,9 @@ function App() {
       <Route path="/customer/menu" element={<Menu></Menu>} ></Route>
       <Route path="/customer/cart" element={<CustomerCart></CustomerCart>} ></Route>
       <Route path="/customer/history" element={<CustomerHistory></CustomerHistory>} ></Route>
+      <Route path="/customer/profile" element={<CustomerProfile></CustomerProfile>} ></Route>
 
-
+      
 
 
       

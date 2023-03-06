@@ -1,5 +1,6 @@
 package com.app.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.app.pojos.DeliveryBoy;
 import com.app.pojos.HistoryItems;
+import com.app.pojos.User;
 import com.app.services.HistoryItemService;
 
 @RestController
@@ -24,6 +26,7 @@ public class HistoryItemController {
 
 	@PostMapping("/hotel/{orderId}")
 	public String changeHotelOrderStatus(@PathVariable long orderId) {
+	
 		return histItemService.changeHotelOrderStatus(orderId);
 	}
 
