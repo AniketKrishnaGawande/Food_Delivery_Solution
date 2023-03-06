@@ -15,12 +15,27 @@ import CustomerHome from "./Components/Customer/js_file/CustomerHome";
 import Menu from "./Components/Customer/js_file/Menu";
 import CustomerCart from "./Components/Customer/js_file/CustomerCart";
 import CustomerHistory from "./Components/Customer/js_file/CustomerHistory";
+<<<<<<< HEAD
 import HotelHome from './Components/Hotelier/HotelierHome';
 import Order from "./Components/Hotelier/OrderStatus";
 import HotelMenus from "./Components/Hotelier/HotelMenus";
 import Addmenu from "./Components/Hotelier/Addmenu";
 import DeliveryHome from './Components/DeliveryBoy/DeliveryBoyHome';
 import DeliveryDetails from "./Components/DeliveryBoy/DeliveryDetails";
+=======
+import CustomerProfile from "./Components/Customer/js_file/CustomerProfile";
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> b9abcbe761ee1678eca3bfa1dcd323206c41bc42
 
 function App() {
   return(
@@ -51,7 +66,9 @@ function App() {
       <Route path="/customer/menu" element={<Menu></Menu>} ></Route>
       <Route path="/customer/cart" element={<CustomerCart></CustomerCart>} ></Route>
       <Route path="/customer/history" element={<CustomerHistory></CustomerHistory>} ></Route>
+      <Route path="/customer/profile" element={<CustomerProfile></CustomerProfile>} ></Route>
 
+<<<<<<< HEAD
       //Hotelier
       <Route exact path="/hotelier/home" element={<HotelHome/>}/>
       <Route exact path="/hotelier/home/OrderStatus" element={<Order/>}/>
@@ -70,6 +87,9 @@ function App() {
       
 
 
+=======
+      
+>>>>>>> b9abcbe761ee1678eca3bfa1dcd323206c41bc42
 
 
       
