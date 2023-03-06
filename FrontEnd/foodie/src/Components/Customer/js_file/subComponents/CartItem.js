@@ -10,7 +10,7 @@ var nav=useNavigate();
         axios.delete(`http://localhost:8080/CartItem/${custId}/${props.cart.id}`).then((result)=>{
             alert("Item removed from cart");
          props.chgFlag(!props.flag2)
-
+      window.location.reload(false)
             nav("/customer/cart")            
         }).catch((err)=>{
             alert("not removed")

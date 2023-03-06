@@ -66,8 +66,8 @@ const Login=()=>
             password:pwd
         }).then(result=>{
             console.log(result.data)
-            alert("success")
-            // navigation remaining
+            localStorage.setItem("delivery",JSON.stringify(result.data))
+            navigate("delivery/home")
         }).catch(error=>{
             alert("Service error")
             console.log(error)
@@ -80,8 +80,8 @@ const Login=()=>
             password:pwd
         }).then(result=>{
             console.log(result.data)
-            alert("success")
-            // navigation remaining
+            localStorage.setItem("hotelier",JSON.stringify(result.data))
+            navigate("/hotelier/home")
         }).catch(error=>{
             alert("Service error")
             console.log(error)
