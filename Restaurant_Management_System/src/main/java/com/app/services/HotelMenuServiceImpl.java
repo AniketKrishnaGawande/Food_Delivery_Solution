@@ -65,11 +65,13 @@ public class HotelMenuServiceImpl implements HotelMenuServiceif {
 	// To Remove Menu in Hotel
 	@Override
 	public String removeMenu(long id) {
-		if (hotelMenuRepo.existsById(id)) {
-			hotelMenuRepo.deleteById(id);
-			return "Menu deleted successful ";
-		}
-		return "Give valid Id";
+
+		HotelMenu menu = hotelMenuRepo.findById(id).orElseThrow();
+		Hotelier hotel = menu.getHotel();
+		hService.removeMenu(hotel.getId(), menu);
+		hotelMenuRepo.deleteById(id);
+		return "deleted";
+
 	}
 
 	// Get Hotel Menu's By Id

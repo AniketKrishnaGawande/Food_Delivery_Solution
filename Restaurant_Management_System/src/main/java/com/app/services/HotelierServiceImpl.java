@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.app.dto.HotelierDTO;
 import com.app.dto.LoginDTO;
 import com.app.exception.CustomException;
+import com.app.pojos.HotelMenu;
 import com.app.pojos.HotelStatus;
 import com.app.pojos.Hotelier;
 import com.app.repositories.HotelierRepository;
@@ -33,6 +34,14 @@ public class HotelierServiceImpl implements HotelierServiceIf {
 		return hotelList;
 
 	}
+	
+	
+	public void removeMenu(long hotelId, HotelMenu menu) {
+		Hotelier hotel= hotelRepo.findById(hotelId).orElseThrow();
+		hotel.getMenus().remove(menu);
+		hotelRepo.save(hotel);
+	}
+	
 
 	// To fetch All Hotel Details
 	@Override

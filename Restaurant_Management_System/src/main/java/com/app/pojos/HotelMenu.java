@@ -54,6 +54,7 @@ public class HotelMenu extends BaseEntity {
 		this.menu = menu;
 
 	}
+	
 
 	// photo pending
 
