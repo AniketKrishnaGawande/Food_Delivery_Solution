@@ -32,7 +32,7 @@ public class HistoryItemService {
 		return histItemRepo.save(historyItem);
 	}
 	
-	
+	//get orders By delivery By Id
 	public List<HistoryItems> getItemByDBoy(long dId){
 		DeliveryBoy dBoy = dBoyService.getDBoyById(dId);
 		

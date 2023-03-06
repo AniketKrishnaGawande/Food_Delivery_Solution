@@ -36,6 +36,7 @@ public class HotelMenuServiceImpl implements HotelMenuServiceif {
 		return menuList;
 	}
 
+	//get Menu by hotel Id
 	public List<HotelMenu> fetchMenuByHotelId(long hId) {
 		Hotelier hotel = hService.getHotelByHId(hId);
 		return hotelMenuRepo.findByHotel(hotel);
