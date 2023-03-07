@@ -1,11 +1,13 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Header from "./subComponents/Header";
 import HistoryItem from "./subComponents/HistoryItem";
 
 
 function CustomerHistory(){
-var [history,SetHistory]=useState(
+const nav =useNavigate();
+  var [history,SetHistory]=useState(
 
     {id: 0, historyItems: [{id: 0,
         dateOfPlacement: "",
@@ -36,6 +38,11 @@ var [history,SetHistory]=useState(
 
 
 useEffect(()=>{
+
+  if(!localStorage.customer)
+  {nav("/")}
+
+
     var id = JSON.parse(localStorage.customer).id;
     axios.get(`http://localhost:8080/order/getAllOrders/${id}`).then((result)=>{
    var obj =result.data;
