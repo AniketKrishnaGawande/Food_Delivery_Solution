@@ -9,6 +9,7 @@ const DeliveryRender = (props) => {
         axios.post(`http://localhost:8080/changeStatus/dboy/${id}`).then((response)=>
         {
             console.log(response.data)
+            window.location.reload(false)
         }).catch((error)=>
         {
             console.log(error)

@@ -10,6 +10,7 @@ function OrderStatusRender(props){
         axios.post(`http://localhost:8080/changeStatus/hotel/${id}`).then((response)=>
         {
             console.log(response.data)
+            window.location.reload(false)
         }).catch((error)=>
         {
             console.log(error)
