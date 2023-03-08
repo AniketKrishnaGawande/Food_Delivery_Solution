@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import logo from "../../images/img_avatar1.png"
 import "../../css_file/header.css"
 import { useNavigate } from "react-router-dom";
 const Header=function(props){
 
+
+
   const nav=useNavigate();
+
+useEffect(()=>{
+  if(!localStorage.customer)
+  {nav("/")}
+},[])
+
 const logOut=()=>{
 localStorage.removeItem("customer");
 alert("logged out successfully")

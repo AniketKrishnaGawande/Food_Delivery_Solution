@@ -53,6 +53,9 @@ public class HistoryItemService {
 
 	// change status by hotel
 	public String changeHotelOrderStatus(Long orderId) {
+		
+		System.out.println("**************"+orderId+"**************");
+		
 		HistoryItems item = histItemRepo.findById(orderId).orElseThrow();
 		item.setOrderStatus(HotelOrderStatus.COMPLETED);
 		return "order status changed";

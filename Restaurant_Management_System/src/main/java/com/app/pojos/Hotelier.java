@@ -49,6 +49,13 @@ public class Hotelier extends BaseEntity {
 	@JsonIgnore
 	private List<HotelMenu> menus = new ArrayList<>();
 
+
+	
+	public void remove(HotelMenu menu) {
+System.out.println("//////////////////*****************************************");
+		menus.remove(menu);
+	}
+	
 	// dto purpose
 	public Hotelier(String hName, String hAddress, String email, String password) {
 

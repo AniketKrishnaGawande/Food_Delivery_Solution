@@ -5,6 +5,7 @@ import java.util.List;
 import com.app.dto.HotelierDTO;
 import com.app.dto.LoginDTO;
 import com.app.exception.CustomException;
+import com.app.pojos.HotelMenu;
 import com.app.pojos.Hotelier;
 
 public interface HotelierServiceIf {
@@ -26,5 +27,7 @@ public interface HotelierServiceIf {
 	public Hotelier hotelLogin(LoginDTO details)throws CustomException;
 	
 	public Hotelier getHotelByHId(long hId);
+	
+	public void removeMenu(long hotelId, HotelMenu menu);
 
 }

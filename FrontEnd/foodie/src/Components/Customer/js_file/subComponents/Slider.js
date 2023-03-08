@@ -4,7 +4,7 @@ import image3 from "../../images/menu-item-2.png"
 import image4 from "../../images/menu-item-4.png"
 import image5 from "../../images/menu-item-5.png"
 import image6 from "../../images/menu-item-6.png"
-
+import image7 from "../../../Images/BackGround.jpg"
 
 
 
@@ -29,15 +29,32 @@ return(
 </div>
 
 <div class="carousel-inner">
-  <div class="carousel-item active">
-    <img src={image1} alt="Los Angeles" class="d-block" style={{"width":"100%","height":"50%"}}/>
+
+<div class="carousel-item active">
+  <img src={image7} class="d-block" style={{"width":"100%","height":"50%"}}/>
+  </div>
+
+  <div class="carousel-item ">
+    <img src={image1} class="d-block" style={{"width":"100%","height":"50%"}}/>
   </div>
   <div class="carousel-item">
-  <img src={image2} alt="Los Angeles" class="d-block" style={{"width":"100%","height":"50%"}}/>
+  <img src={image2} class="d-block" style={{"width":"100%","height":"50%"}}/>
   </div>
   <div class="carousel-item">
-  <img src={image3} alt="Los Angeles" class="d-block" style={{"width":"100%","height":"50%"}}/>
+  <img src={image3}  class="d-block" style={{"width":"100%","height":"50%"}}/>
   </div>
+  <div class="carousel-item">
+  <img src={image4}  class="d-block" style={{"width":"100%","height":"50%"}}/>
+  </div>
+  <div class="carousel-item">
+  <img src={image5} class="d-block" style={{"width":"100%","height":"50%"}}/>
+  </div>
+  
+  <div class="carousel-item">
+  <img src={image6} alt="Los Angeles" class="d-block" style={{"width":"100%","height":"50%"}}/>
+  </div>
+
+
 </div>
 
 <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
