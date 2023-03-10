@@ -26,7 +26,7 @@ return(
     <p class="card-text"> Description ::{props.menuItem.description}</p>
     <p class="card-text"> {props.menuItem.menu}</p>
     <p class="card-text"> Price :: {props.menuItem.mprice}</p>
-   <button onClick={()=>addToCart(props.menuItem.id)}>Add to Cart</button> 
+   <button className="btn btn-success" onClick={()=>addToCart(props.menuItem.id)}>Add to Cart</button> 
 
        </div>
     </div>

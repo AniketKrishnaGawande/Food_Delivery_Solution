@@ -47,10 +47,11 @@ const DeliveryRender = (props) => {
                                     return data.hotel.email})}
                                 </p>
                                 
-                                <p class="card-text"> Hotel Address ::{props.delivery.menuList.map((data) => {
+                                 <p class="card-text"> Hotel Address ::{props.delivery.menuList.map((data) => {
                                     return data.hotel.haddress})}
-                                </p>
-                                
+                                </p> 
+
+                               
                                 <button class="btn btn-success" onClick={changeStatus}>Change Status</button>
 
                             </div>

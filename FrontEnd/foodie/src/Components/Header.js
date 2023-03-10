@@ -15,7 +15,7 @@ function Title()
   <img class="card-img-top" src={img} alt="Card image" style={{"width":"100%","height":"200px"}}/>
   <div class="card-img-overlay">
     <h1 class="card-title"  style={{color:"white"}}>Foodie</h1>
-    <i class="card-text" style={{color:"white"}} >directly to ur doorstep</i>
+    <i class="card-text" style={{color:"white"}} >Delivery to ur doorstep</i>
   </div>
 </div>
     )
