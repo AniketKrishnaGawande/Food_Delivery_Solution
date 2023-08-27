@@ -52,7 +52,7 @@ const Hotelier = () => {
             })
             .catch(error=>
                 {
-                    alert(error)
+                    alert("Can not delete Hotelier Because It is associated with Certain Order")
                 })
             )
         }

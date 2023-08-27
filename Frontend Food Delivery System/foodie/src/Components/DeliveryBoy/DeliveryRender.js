@@ -51,6 +51,9 @@ const DeliveryRender = (props) => {
                                     return data.hotel.haddress})}
                                 </p> 
 
+                                <p class="card-text"> Delivery Address :: 238 Yadogopal peth Gurushanti Apt ,Pune 
+                                </p>
+
                                
                                 <button class="btn btn-success" onClick={changeStatus}>Change Status</button>
 
